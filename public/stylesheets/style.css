@@ -1,0 +1,29 @@
+body {
+  font-display: none;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+ 
+}
+
+a {
+  color: #00B7FF;
+}
+.btn{
+  width: 25%;
+  background: darkblue;
+}
+#logindiv{
+  margin-top: 170px;
+}
+.form-group{
+  border: none !important;
+  margin: opx;
+  padding: 8px;
+}
+.navbar{
+ border-bottom:5px solid darkblue !important;
+
+}
+#logo{
+  color: darkblue;
+}
