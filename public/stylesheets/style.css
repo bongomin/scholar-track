@@ -27,3 +27,16 @@ a {
 #logo{
   color: darkblue;
 }
+#register{
+  margin-top: 200px;
+  background: red;
+}
+
+   .menus {
+      margin-top: 10px;
+
+   }
+   .nav-tabs li{
+     font-size: 11px;
+     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   }
