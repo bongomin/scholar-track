@@ -40,3 +40,22 @@ a {
      font-size: 11px;
      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
    }
+
+   /* leftCard */
+   .card{
+    height: 500px; 
+    background:rgba(128, 128, 128, 0.034);
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+   }
+   .card ul li:hover{
+     background:darkblue;
+     color: rgba(128, 128, 128, 0.863);
+   }
+   .registerStudentForm .form-group{
+    border: none !important;
+    margin: opx !important;
+    padding: 2px;
+
+   }
