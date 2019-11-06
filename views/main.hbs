@@ -29,44 +29,107 @@
          <div class="col-md-10 col-sm-10">
             <div class="registerStudentForm">
                <form action="">
-                  <div class="form-group col-md-6">
-                     <input type="text" class="form-control" placeholder="Sponsorship Number example U2345xxxxxx">
-                  </div>
-                  <div class="form-group m-0 p-0 col-md-6">
-                     <input type="text" class="form-control" placeholder="Full Name">
-                  </div>
-                  <div class="form-group col-md-6">
-                     <input type="date" class="form-control" placeholder="Date of Birth ">
-                  </div>
-                  <div class="form-group m-0 p-0 col-md-6">
-                     <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Female</option>
-                        <option>Male</option>
-                        <option>Others</option>
-                     </select>
-                  </div>
-                  <div class="form-group col-md-6">
-                     <input type="text" class="form-control" placeholder="Religion /Faith ">
-                  </div>
-                  <div class="form-group col-md-6">
-                     <input type="text" class="form-control" placeholder="Class / Educational Level ">
-                  </div>
-                  <div class="form-group col-md-6">
-                     <input type="text" class="form-control" placeholder="Place of Residence / Country and City ">
-                  </div>
-                  <div class="form-group col-md-6">
-                     <input type="text" class="form-control" placeholder="Parents Contact ">
-                  </div>
-                  <div class="form-group col-md-6">
-                     <input type="text" class="form-control" placeholder="Email @example.com">
-                  </div>
-                  <div class="form-group col-md-6">
-                     <label for="customFile" class="col-sm-4 col-form-label">Passport image</label>
-                     <div class="col-sm-6">
-                        <input type="file" class="custom-file-input" id="customFile" style="height: 80px;">
+                  <div id="studentForm">
+                     <div class="panel panel-primary">
+                        <div class="panel-heading" style="background: darkblue;">Students Info</div>
+                        <div class="panel-body">
+                           <div class="form-group col-md-6">
+                              <input type="text" class="form-control"
+                                 placeholder="Sponsorship Number example U2345xxxxxx">
+                           </div>
+                           <div class="form-group m-0 p-0 col-md-6">
+                              <input type="text" class="form-control" placeholder="Full Name">
+                           </div>
+                           <div class="form-group col-md-6">
+                              <input type="date" class="form-control" placeholder="Date of Birth ">
+                           </div>
+                           <div class="form-group m-0 p-0 col-md-6">
+                              <select class="form-control" id="exampleFormControlSelect1">
+                                 <option>Female</option>
+                                 <option>Male</option>
+                                 <option>Others</option>
+                              </select>
+                           </div>
+                           <div class="form-group col-md-6">
+                              <input type="text" class="form-control" placeholder="Religion /Faith ">
+                           </div>
+                           <div class="form-group col-md-6">
+                              <input type="text" class="form-control" placeholder="Class / Educational Level ">
+                           </div>
+                           <div class="form-group col-md-6">
+                              <input type="text" class="form-control"
+                                 placeholder="Place of Residence / Country and City ">
+                           </div>
+                           <div class="form-group col-md-6">
+                              <input type="text" class="form-control" placeholder="Parents Contact ">
+                           </div>
+                           <div class="form-group col-md-6">
+                              <input type="text" class="form-control" placeholder="Email @example.com">
+                           </div>
+                           <div class="form-group col-md-6">
+                              <label for="customFile" class="col-sm-4 col-form-label">Passport image</label>
+                              <div class="col-sm-6">
+                                 <input type="file" class="custom-file-input" id="customFile" style="height: 80px;">
+                              </div>
+                           </div>
+                           <span class="pull-right" onclick="changediv()" style="cursor: pointer;">Next <i
+                                 class="fa fa-arrow-right" style="font-size:20px;color:darkblue;"></i></span>
+
+                        </div>
                      </div>
                   </div>
-                  <a href="" class="btn btn-default" style="background: rgba(128, 128, 128, 0.109);">Register</a>
+                  <div id="parentForm">
+                     <div class="panel panel-primary">
+                        <div class="panel-heading" style="background: darkblue;">Student's parent Info</div>
+                        <div class="panel-body">
+                           <div class="form-group col-md-6">
+                              <input type="text" class="form-control" placeholder="Parent's First Name">
+                           </div>
+                           <div class="form-group m-0 p-0 col-md-6">
+                              <input type="text" class="form-control" placeholder="Parent's Second Name">
+                           </div>
+                           <div class="form-group col-md-6">
+                              <input type="number" class="form-control" placeholder="Age ">
+                           </div>
+                           <div class="form-group col-md-6">
+                              <input type="text" class="form-control" placeholder="Occupation ">
+                           </div>
+                           <div class="form-group m-0 p-0 col-md-6">
+                              <select class="form-control" id="exampleFormControlSelect1">
+                                 <option>Relationship to Child</option>
+                                 <option>Father</option>
+                                 <option>Mother</option>
+                                 <option>Gurdian</option>
+                              </select>
+                           </div>
+                           <div class="form-group col-md-6">
+                              <input type="number" class="form-control" placeholder="Number of Siblings ">
+                           </div>
+                           <div class="form-group col-md-6">
+                              <input type="text" class="form-control" placeholder="Contact ie +256 07xxxx ">
+                           </div>
+                           <div class="form-group col-md-6">
+                              <input type="text" class="form-control"
+                                 placeholder="Place of Residence / Country and City ">
+                           </div>
+                           <div class="form-group col-md-6">
+                              <input type="text" class="form-control" placeholder="Parents emial @xxx ">
+                           </div>
+                           <div class="form-group col-md-6">
+                              <label for="customFile" class="col-sm-5 col-form-label">Map attouchment</label>
+                              <div class="col-sm-6">
+                                 <input type="file" class="custom-file-input" id="customFile" style="height: 80px;">
+                              </div>
+                           </div>
+                           <a class="btn btn-default pull-right"
+                              style="background:darkblue;color:aliceblue;">register</a>
+                           <span class="pull-left" onclick="changeback()" style="cursor: pointer;"> <i
+                                 class="fa fa-arrow-left" style="font-size:20px;color:darkblue;"></i> Back </span>
+
+                        </div>
+                     </div>
+                  </div>
+
                </form>
 
             </div>
@@ -84,7 +147,57 @@
                </div>
             </div>
          </div>
-         <div class="col-md-10"> parents right</div>
+         <div class="col-md-10">
+            <div class="registerparentdiv">
+               <form action="">
+                  <div class="panel panel-primary">
+                     <div class="panel-heading" style="background: darkblue;">Register Student's Parent</div>
+                     <div class="panel-body">
+                        <div class="form-group col-md-6">
+                           <input type="text" class="form-control" placeholder="Parent's First Name">
+                        </div>
+                        <div class="form-group m-0 p-0 col-md-6">
+                           <input type="text" class="form-control" placeholder="Parent's Second Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                           <input type="number" class="form-control" placeholder="Age ">
+                        </div>
+                        <div class="form-group col-md-6">
+                           <input type="text" class="form-control" placeholder="Occupation ">
+                        </div>
+                        <div class="form-group m-0 p-0 col-md-6">
+                           <select class="form-control" id="exampleFormControlSelect1">
+                              <option>Relationship to Child</option>
+                              <option>Father</option>
+                              <option>Mother</option>
+                              <option>Gurdian</option>
+                           </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                           <input type="number" class="form-control" placeholder="Number of Siblings ">
+                        </div>
+                        <div class="form-group col-md-6">
+                           <input type="text" class="form-control" placeholder="Contact ie +256 07xxxx ">
+                        </div>
+                        <div class="form-group col-md-6">
+                           <input type="text" class="form-control" placeholder="Place of Residence / Country and City ">
+                        </div>
+                        <div class="form-group col-md-6">
+                           <input type="text" class="form-control"
+                              placeholder="Student's Sponsorship number example U123 xxx ">
+                        </div>
+                        <div class="form-group col-md-6">
+                           <label for="customFile" class="col-sm-5 col-form-label">Map attouchment</label>
+                           <div class="col-sm-6">
+                              <input type="file" class="custom-file-input" id="customFile" style="height: 80px;">
+                           </div>
+                        </div>
+                        <a class="btn btn-default pull-right" style="background:darkblue;color:aliceblue;">register</a>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
       </div>
       <div id="reportsdiv" style="display:none ;">
          {{!-- Reports left menu --}}
@@ -99,7 +212,14 @@
                </div>
             </div>
          </div>
-         <div class="col-md-10"> here div</div>
+         <div class="col-md-10">
+            <div class="panel panel-primary">
+               <div class="panel-heading" style="background: darkblue;">Reports</div>
+               <div class="panel-body">
+                  There are No reports Yet....
+               </div>
+            </div>
+         </div>
       </div>
       <div id="scholarsdiv" style="display:none ;">
          <div class="col-md-2">scholars left</div>
@@ -108,32 +228,4 @@
 
    </div>
 </div>
-<script>
-   function studentsFunction() {
-      document.getElementById('studentsdiv').style.display = "block"
-      document.getElementById('parentsdiv').style.display = "none"
-      document.getElementById('reportsdiv').style.display = "none"
-      document.getElementById('scholarsdiv').style.display = "none"
-   }
-
-   function parentsFunction() {
-      document.getElementById('studentsdiv').style.display = "none"
-      document.getElementById('parentsdiv').style.display = "block"
-      document.getElementById('reportsdiv').style.display = "none"
-      document.getElementById('scholarsdiv').style.display = "none"
-   }
-
-   function reportsFunction() {
-      document.getElementById('studentsdiv').style.display = "none"
-      document.getElementById('parentsdiv').style.display = "none"
-      document.getElementById('reportsdiv').style.display = "block"
-      document.getElementById('scholarsdiv').style.display = "none"
-   }
-   function scholarsFunction() {
-      document.getElementById('studentsdiv').style.display = "none"
-      document.getElementById('parentsdiv').style.display = "none"
-      document.getElementById('reportsdiv').style.display = "none"
-      document.getElementById('scholarsdiv').style.display = "block"
-   }
-
-</script>
+<script src="javascripts/main.js"></script>
