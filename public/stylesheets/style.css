@@ -9,7 +9,6 @@ a {
   color: #00B7FF;
 }
 .btn{
-  width: 25%;
   background: darkblue;
 }
 #logindiv{
@@ -44,18 +43,30 @@ a {
    /* leftCard */
    .card{
     height: 500px; 
-    background:rgba(128, 128, 128, 0.034);
+    background:rgba(128, 128, 128, 0);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 10;
     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
     -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
     box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
    }
    .card ul li:hover{
-     background:darkblue;
-     color: rgba(128, 128, 128, 0.863);
+     border-right: 5px solid darkblue;
+     color:darkblue;
+     cursor: pointer;
    }
    .registerStudentForm .form-group{
     border: none !important;
     margin: opx !important;
     padding: 2px;
 
+   }
+   label{
+    font-weight:5px !important;
+   }
+   .studentForm{
+     display: block;
+   }
+   .parentForm{
+    display: none;
    }
