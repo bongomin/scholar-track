@@ -9,6 +9,7 @@ router.get('/register_parent', register_parents_page)
 router.get('/reports', reports_page)
 
 router.get('/', allStudents_page);
+
 //registering new student
 router.post('/add', addStudent);
 

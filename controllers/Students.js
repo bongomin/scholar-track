@@ -49,7 +49,7 @@ exports.addStudent = (req, res) => {
       errors.push({ text: "Student's email missing" });
    }
    if (errors.length > 0) {
-      res.render('register_student', {
+      res.render('Students/register_student', {
          errors: errors,
          sponsorship_No: req.body.sponsorship_No,
          full_name: req.body.full_name,
