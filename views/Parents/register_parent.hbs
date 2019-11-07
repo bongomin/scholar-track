@@ -1,0 +1,57 @@
+<style>
+   .nav-tabs li {
+      font-size: 11px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   }
+
+   #logindiv {
+      margin-top: 170px;
+   }
+
+   .menus {
+      margin-top: 10px;
+
+   }
+
+   .card ul li:hover {
+      border-right: 5px solid darkblue;
+      color: darkblue;
+      cursor: pointer;
+   }
+</style>
+<link rel="stylesheet" href="stylesheets/">
+<div class="container">
+   <div class="menus" style="margin-top: 60px;">
+      <div class="row">
+         <ul class="nav nav-tabs">
+            <li class="active"><a href="/student/register_student">Register Student</a></li>
+            <li><a href="/student/register_parent">Register Parent</a></li>
+            <li><a href="/student/reports">Register Parent</a></li>
+            <li><a>Scholars</a></li>
+         </ul>
+      </div>
+   </div>
+   <div class="container-fluid" style="margin-top: 5px;">
+      <div class="row">
+         <div id="parentsdiv">
+            {{!-- Parents left menu --}}
+            <div class="col-md-2 col-sm-2 hidden-xs">
+               <div class="row">
+                  <div class="card">
+                     <ul class="list-group">
+                        <li class="list-group-item">register parent</li>
+                        <li class="list-group-item">All Parents info</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-10">
+               {{>_register_parent}}
+            </div>
+         </div>
+
+      </div>
+   </div>
+
+</div>
+<script src="javascripts/main.js"></script>

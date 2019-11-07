@@ -1,11 +1,6 @@
 
 function studentsFunction() {
-   document.getElementById('studentsdiv').style.display = "block"
-   document.getElementById('studentForm').style.display = "block"
-   document.getElementById('parentForm').style.display = "none"
-   document.getElementById('parentsdiv').style.display = "none"
-   document.getElementById('reportsdiv').style.display = "none"
-   document.getElementById('scholarsdiv').style.display = "none"
+   window.open()
 }
 
 function parentsFunction() {
