@@ -1,0 +1,65 @@
+<style>
+   .nav-tabs li {
+      cursor: pointer;
+      font-size: 11px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   }
+
+   a {
+      text-decoration: none;
+   }
+
+   .card ul li:hover {
+      border-right: 5px solid darkblue;
+      color: darkblue;
+      cursor: pointer;
+   }
+</style>
+{{!-- <link rel="stylesheet" href="stylesheets/"> --}}
+<div class="container">
+   <div class="menus" style="margin-top: 10px;">
+      <div class="row">
+         <ul class="nav nav-tabs">
+            <li class="active"><a href="/student/register_student">Register Student</a></li>
+            <li><a href="/student/register_parent">Register Parent</a></li>
+            <li><a href="/student/reports">Register Parent</a></li>
+            <li><a>Scholars</a></li>
+         </ul>
+      </div>
+   </div>
+   <div class="container-fluid" style="margin-top: 5px;">
+      <div class="row">
+         <div id="registerStudentDiv">
+            {{!-- students left menu --}}
+            <div class="col-md-2 col-sm-2 hidden-xs">
+               <div class="row">
+                  <div class="card">
+                     <ul class="list-group">
+                        <a href="/student/register_student">
+                           <li class="list-group-item">register Students </li>
+                        </a>
+                        <a href="/student">
+                           <li class="list-group-item">Students</li>
+                        </a>
+                        <a href="">
+                           <li class="list-group-item">Reports</li>
+                        </a>
+                     </ul>
+                  </div>
+                  {{#each errors}}
+                  <div class="alert alert-danger">{{text}}</div>
+                  {{else}}
+                  {{/each}}
+               </div>
+            </div>
+            {{!-- students right content --}}
+            <div class="col-md-10 col-sm-10">
+               {{>_all_students}}
+            </div>
+         </div>
+
+      </div>
+   </div>
+
+</div>
+<script src="javascripts/main.js"></script>

@@ -7,8 +7,28 @@ var hbs = require('express-handlebars');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var homeRoute = require('./routes/home')
+var studentsRoute = require('./routes/Students')
+var mongoose = require('mongoose');
+var bodyParser = require('body-parser')
 
 var app = express();
+
+///connect to db mongoose
+// mapping global promise-getting rid of warning
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/track-scholar', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+  .then(() => {
+    console.log('mongodb connected')
+  })
+  .catch(err => console.log(err));
+
+// body-parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +53,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', homeRoute);
+app.use('/student', studentsRoute);
 
 
 

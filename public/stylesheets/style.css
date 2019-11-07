@@ -19,13 +19,6 @@ a {
   margin: opx;
   padding: 8px;
 }
-.navbar{
- border-bottom:5px solid darkblue !important;
-
-}
-#logo{
-  color: darkblue;
-}
 #register{
   margin-top: 200px;
   background: red;

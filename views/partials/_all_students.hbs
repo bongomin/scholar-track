@@ -1,0 +1,41 @@
+<div class="registerStudentForm">
+   <div id="allstudents">
+      <div class="panel panel-primary">
+         <div class="panel-heading" style="background: darkblue;">All Students</div>
+         <div class="panel-body">
+            <table class="table table-hover table-dark" style="font-size: 12px;">
+               <thead>
+                  <tr>
+                     <th scope="col">Sponsorship_No</th>
+                     <th scope="col">Full Names</th>
+                     <th scope="col">Gender</th>
+                     <th scope="col">Faith</th>
+                     <th scope="col">Class</th>
+                     <th scope="col">Residence</th>
+                     <th scope="col">contact</th>
+                     <th scope="col">Parents Name</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {{#each students}}
+                  <tr>
+                     <td>{{sponsorship_No}}</td>
+                     <td style="  text-transform: capitalize;">{{full_name}}</td>
+                     <td>{{gender}}</td>
+                     <td>{{faith}}</td>
+                     <td style="  text-transform: capitalize;">{{religion}}</td>
+                     <td style="  text-transform: capitalize;">{{residence}}</td>
+                     <td>{{contact}}</td>
+                     <td style="  text-transform: capitalize;">{{p_first_name}}</td>
+                  </tr>
+                  {{else}}
+                  <p>No Students Registered</p>
+                  {{/each}}
+               </tbody>
+            </table>
+
+         </div>
+      </div>
+   </div>
+
+</div>
