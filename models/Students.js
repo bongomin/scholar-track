@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const { ObjectId } = mongoose.Schema
 
 // students Schem
 const StudentsSchema = new Schema(
@@ -35,7 +36,8 @@ const StudentsSchema = new Schema(
          type: String
       },
       passport_img: {
-         type: String
+         data: Buffer,
+         contentType: String
       },
       date: {
          type: Date,
@@ -69,7 +71,12 @@ const StudentsSchema = new Schema(
          type: String
       },
       p_map: {
-         type: String
+         data: Buffer,
+         contentType: String
+      },
+      postedBy: {
+         type: ObjectId,
+         ref: "User"
       }
 
 
