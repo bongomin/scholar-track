@@ -18,7 +18,7 @@ router.get('/reports', reports_page)
 router.get('/', allStudents_page);
 
 router.get('/edit/:id', edit_sudent_info);
-router.put('/edit/:id', put_sudent_info);
+router.get('/edit/', put_sudent_info);
 
 //registering new student
 router.post('/add', addStudent);

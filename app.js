@@ -15,7 +15,7 @@ var methodOverride = require('method-override');
 var app = express();
 
 ///connect to db mongoose
-// mapping global promise-getting rid of warning
+// mapping global promlsise-getting rid of warning
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/track-scholar', {
   useNewUrlParser: true,
@@ -29,7 +29,6 @@ mongoose.connect('mongodb://localhost/track-scholar', {
 // body-parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 
 // method overide middleware
 app.use(methodOverride('_method'))
@@ -71,6 +70,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', homeRoute);
 app.use('/student', studentsRoute);
+
 
 
 
