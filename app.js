@@ -10,6 +10,7 @@ var homeRoute = require('./routes/home')
 var studentsRoute = require('./routes/Students')
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser')
+var methodOverride = require('method-override');
 
 var app = express();
 
@@ -30,9 +31,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
+// method overide middleware
+app.use(methodOverride('_method'))
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+
 
 // template engine static file locater
 app.engine('hbs', hbs({
@@ -50,6 +58,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.get('/about', (req, res) => {
+  res.render('about')
+})
+
+
+app.get('/contact', (req, res) => {
+  res.render('contact')
+})
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', homeRoute);

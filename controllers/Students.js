@@ -15,6 +15,26 @@ exports.register_student_page = (req, res) => {
    res.render('Students/register_student')
 }
 
+// edit students info
+exports.edit_sudent_info = (req, res) => {
+   Student.findOne({
+      _id: req.params.id
+   })
+      .then(student => {
+         res.render('Students/edit_student', {
+            student: student
+         })
+      })
+}
+
+// Edit form process
+exports.put_sudent_info = (req, res) => {
+   res.send('PUT')
+}
+
+
+
+///displaying all students
 exports.allStudents_page = (req, res) => {
    Student.find({})
       .sort({ date: 'desc' })
@@ -25,6 +45,8 @@ exports.allStudents_page = (req, res) => {
       })
 }
 
+
+///adding new student
 exports.addStudent = (req, res) => {
    let errors = [];
    if (!req.body.sponsorship_No) {
