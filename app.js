@@ -29,9 +29,8 @@ mongoose.connect('mongodb://localhost/track-scholar', {
 // body-parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 // method overide middleware
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 
 
