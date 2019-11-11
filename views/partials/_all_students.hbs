@@ -1,3 +1,9 @@
+<style>
+   .fa:hover {
+      cursor: pointer;
+
+   }
+</style>
 <div class="registerStudentForm">
    <div id="allstudents">
       <div class="panel panel-primary">
@@ -13,7 +19,7 @@
                      <th scope="col">Class</th>
                      <th scope="col">Residence</th>
                      <th scope="col">contact</th>
-                     <th scope="col">Parents Name</th>
+                     <th scope="col">Action</th>
                   </tr>
                </thead>
                <tbody>
@@ -22,11 +28,25 @@
                      <td>{{sponsorship_No}}</td>
                      <td style="  text-transform: capitalize;">{{full_name}}</td>
                      <td>{{gender}}</td>
-                     <td>{{faith}}</td>
                      <td style="  text-transform: capitalize;">{{religion}}</td>
+                     <td style="  text-transform: capitalize;">{{class}}</td>
                      <td style="  text-transform: capitalize;">{{residence}}</td>
                      <td>{{contact}}</td>
-                     <td style="  text-transform: capitalize;">{{p_first_name}}</td>
+                     <td>
+                        <a href="">
+                           <i class="fa fa-trash" style="color:red" aria-hidden="true"></i>
+                        </a>
+                        &nbsp <a href="student/edit/{{id}}">
+                           <i class="fa fa-pencil-square-o" style="color: green;" aria-hidden="true"></i>
+                        </a>
+                        &nbsp
+                        <a href="">
+                           <i class="fa fa-crosshairs" style="color:darkblue;" aria-hidden="true"> more info</i>
+                        </a>
+
+
+
+                     </td>
                   </tr>
                   {{else}}
                   <p>No Students Registered</p>

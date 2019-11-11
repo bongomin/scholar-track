@@ -15,6 +15,58 @@ exports.register_student_page = (req, res) => {
    res.render('Students/register_student')
 }
 
+// edit students info
+exports.edit_sudent_info = (req, res) => {
+   Student.findOne({
+      _id: req.params.id
+   })
+      .then(student => {
+         res.render('Students/edit_student', {
+            student: student
+         })
+      })
+}
+
+// Edit form process
+exports.put_sudent_info = (req, res) => {
+   Student.findOne({
+      _id: req.params.id
+   })
+      .then((updated_Student) => {
+         // new values
+         updated_Student.sponsorship_No = req.body.sponsorship_No;
+         updated_Student.full_name = req.body.full_name;
+         updated_Student.dob = req.body.dob;
+         updated_Student.gender = req.body.gender;
+         updated_Student.religion = req.body.religion;
+         updated_Student.student_class = req.body.student_class;
+         updated_Student.residence = req.body.residence;
+         updated_Student.contact = req.body.contact;
+         updated_Student.email = req.body.email;
+         updated_Student.passport_img = req.body.passport_img;
+         updated_Student.p_first_name = req.body.p_first_name;
+         updated_Student.p_second_name = req.body.p_second_name;
+         updated_Student.p_age = req.p_age;
+         updated_Student.p_occupation = req.body.p_occupation;
+         updated_Student.p_relationship = req.body.p_relationship;
+         updated_Student.p_no_siblings = req.body.p_no_siblings;
+         updated_Student.p_contact = req.body.p_contact;
+         updated_Student.p_residence = req.body.p_residence;
+         updated_Student.p_email = req.body.p_email;
+         updated_Student.p_map = req.body.p_map;
+         updated_Student.date = req.body.date;
+         // saving new data to db
+         updated_Student.save()
+            .then(new_record => {
+               res.redirect('/student');
+            })
+
+      })
+}
+
+
+
+///displaying all students
 exports.allStudents_page = (req, res) => {
    Student.find({})
       .sort({ date: 'desc' })
@@ -25,6 +77,8 @@ exports.allStudents_page = (req, res) => {
       })
 }
 
+
+///adding new student
 exports.addStudent = (req, res) => {
    let errors = [];
    if (!req.body.sponsorship_No) {
@@ -39,7 +93,7 @@ exports.addStudent = (req, res) => {
    if (!req.body.gender) {
       errors.push({ text: "Student's Gender missing" });
    }
-   if (!req.body.class) {
+   if (!req.body.student_class) {
       errors.push({ text: "Student's class / education level not filled" });
    }
    if (!req.body.contact) {
@@ -55,7 +109,7 @@ exports.addStudent = (req, res) => {
          full_name: req.body.full_name,
          dob: req.body.dob,
          gender: req.body.gender,
-         class: req.body.class,
+         student_class: req.body.student_class,
          contact: req.body.contact,
          email: req.body.email
 
@@ -67,7 +121,7 @@ exports.addStudent = (req, res) => {
          dob: req.body.dob,
          gender: req.body.gender,
          religion: req.body.religion,
-         class: req.body.class,
+         student_class: req.body.student_class,
          residence: req.body.residence,
          contact: req.body.contact,
          email: req.body.email,

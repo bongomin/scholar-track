@@ -23,7 +23,7 @@ const StudentsSchema = new Schema(
       religion: {
          type: String
       },
-      class: {
+      student_class: {
          type: String
       },
       residence: {
