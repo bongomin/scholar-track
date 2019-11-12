@@ -51,10 +51,7 @@
                         </a>
                      </ul>
                   </div>
-                  {{#each errors}}
-                  <div class="alert alert-danger">{{text}}</div>
-                  {{else}}
-                  {{/each}}
+                  {{> _errors}}
                </div>
             </div>
             {{!-- students right content --}}
