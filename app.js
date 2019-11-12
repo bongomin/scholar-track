@@ -11,6 +11,8 @@ var studentsRoute = require('./routes/Students')
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser')
 var methodOverride = require('method-override');
+var flash = require('connect-flash');
+var session = require('express-session');
 
 var app = express();
 
@@ -31,6 +33,27 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // method overide middleware
 app.use(methodOverride('_method'));
+
+// express session middleware
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}))
+// flash middlware
+app.use(flash());
+
+
+// global variable middleware
+
+// Global Variables for flash Messages
+app.use(function (req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  res.locals.user = req.user || null;
+  next();
+})
 
 
 

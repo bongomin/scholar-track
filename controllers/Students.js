@@ -1,3 +1,4 @@
+
 var mongoose = require('mongoose')
 require('../models/Students')
 var Student = mongoose.model('students')
@@ -58,6 +59,7 @@ exports.put_sudent_info = (req, res) => {
          // saving new data to db
          updated_Student.save()
             .then(new_record => {
+               req.flash('success_msg', 'Students Infomation Has been successFully Updated')
                res.redirect('/student');
             })
 
@@ -71,6 +73,7 @@ exports.delete_sudent_info = (req, res) => {
       _id: req.params.id
    })
       .then(() => {
+         req.flash('success_msg', 'Student Records has been removed')
          res.redirect('/student');
       })
 }
@@ -152,6 +155,7 @@ exports.addStudent = (req, res) => {
 
       new Student(newStudent).save()
          .then((student) => {
+            req.flash('success_msg', 'New Student has been added into the system')
             res.redirect('/student');
          })
    }
