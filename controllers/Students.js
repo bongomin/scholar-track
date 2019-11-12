@@ -65,6 +65,17 @@ exports.put_sudent_info = (req, res) => {
 }
 
 
+// Deleting Student
+exports.delete_sudent_info = (req, res) => {
+   Student.remove({
+      _id: req.params.id
+   })
+      .then(() => {
+         res.redirect('/student');
+      })
+}
+
+
 
 ///displaying all students
 exports.allStudents_page = (req, res) => {

@@ -33,7 +33,7 @@
       border-radius: 5px;
       border: none;
       text-align: center;
-      font-size: 12px;
+      font-size: 14px;
    }
 
    .modal-confirm .modal-header {
@@ -76,7 +76,7 @@
       border-radius: 50%;
       z-index: 9;
       text-align: center;
-      border: 3px solid #f15e5e;
+      border: 3px solid darkblue;
    }
 
    .modal-confirm .icon-box i {
@@ -178,13 +178,18 @@
             </div>
             <h4 class="modal-title">Are you sure?</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <form action="/student/{{id}}?_method=DELETE" method="post">
+               <input type="hidden" name="_method" value="Delete">
+               <input type="submit" value="Delete" class="btn btn-danger btn-block">
+            </form>
          </div>
          <div class="modal-body">
             <p>Do you really want to delete the Students Records? This process cannot be undone.</p>
          </div>
          <div class="modal-footer">
-            <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-info pull-left" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Delte</button>
+
          </div>
       </div>
    </div>
