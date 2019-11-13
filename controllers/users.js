@@ -19,11 +19,17 @@ exports.register = (req, res) => {
 
 exports.LoginPost = (req, res, next) => {
    passport.authenticate('local', {
-      successRedirect: '/Students/all_students',
+      successRedirect: '/main',
       failureRedirect: '/',
       failureFlash: true
    })(req, res, next);
 
+}
+
+exports.LogoutUser = (req, res) => {
+   req.logout();
+   req.flash('success_msg', 'You are Logged Out Of the System');
+   res.redirect('/');
 }
 
 // register Form /Post
@@ -76,16 +82,17 @@ exports.postUser = (req, res) => {
                   gender: req.body.gender,
                   phone_number: req.body.phone_number,
                   email: req.body.email,
-                  password: req.body.password
+                  password: req.body.password,
+                  password2: req.body.password2
                })
-               bcrypt.genSalt(10, function (err, salt) {
-                  bcrypt.hash("newUser.password", salt, (err, hash) => {
+               bcrypt.genSalt(10, (err, salt) => {
+                  bcrypt.hash(newUser.password, salt, (err, hash) => {
                      if (err) throw err;
-                     newUser.password = hash
+                     newUser.password = hash;
                      newUser.save()
                         .then(user => {
-                           req.flash('success_msg', 'You are Now Registered, Please wait for aproval FromAdmin');
-                           res.render('register');
+                           req.flash('success_msg', 'You are now registered and can log in');
+                           res.redirect('/');
                         })
                         .catch(err => {
                            console.log(err);

@@ -46,6 +46,11 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }))
+
+//passport middleware//serializers / sessions middlware
+app.use(passport.initialize());
+app.use(passport.session());
+
 // flash middlware
 app.use(flash());
 
