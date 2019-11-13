@@ -23,17 +23,18 @@ var app = express();
 // passport Load
 require('./config/passport')(passport);
 
-///connect to db mongoose
-// mapping global promlsise-getting rid of warning
+// DB config 
+var db = require('./config/database');
+
+// map global promisies / get reed of worning
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/track-scholar', {
+mongoose.connect(db.mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-  .then(() => {
-    console.log('mongodb connected')
-  })
+  .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
+
 
 // body-parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
