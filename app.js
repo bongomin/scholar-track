@@ -14,6 +14,7 @@ var bodyParser = require('body-parser')
 var methodOverride = require('method-override');
 var flash = require('connect-flash');
 var session = require('express-session');
+var { ensureAuthenticated } = require('./helpers/auth')
 
 
 
