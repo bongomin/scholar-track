@@ -9,12 +9,18 @@ var usersRouter = require('./routes/users');
 var homeRoute = require('./routes/home')
 var studentsRoute = require('./routes/Students')
 var mongoose = require('mongoose');
+var passport = require('passport')
 var bodyParser = require('body-parser')
 var methodOverride = require('method-override');
 var flash = require('connect-flash');
 var session = require('express-session');
 
+
+
 var app = express();
+
+// passport Load
+require('./config/passport')(passport);
 
 ///connect to db mongoose
 // mapping global promlsise-getting rid of warning
@@ -92,6 +98,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', homeRoute);
 app.use('/student', studentsRoute);
+
+
 
 
 

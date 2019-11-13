@@ -1,5 +1,5 @@
 var bcrypt = require('bcryptjs');
-// var passport = require('passport')
+var passport = require('passport')
 var mongoose = require('mongoose')
 require('../models/Users')
 var User = mongoose.model('users')
@@ -13,6 +13,17 @@ exports.login = (req, res) => {
 // register endpoint
 exports.register = (req, res) => {
    res.render('register');
+}
+
+// Login Form Post
+
+exports.LoginPost = (req, res, next) => {
+   passport.authenticate('local', {
+      successRedirect: '/Students/all_students',
+      failureRedirect: '/',
+      failureFlash: true
+   })(req, res, next);
+
 }
 
 // register Form /Post
