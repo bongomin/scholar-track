@@ -77,7 +77,11 @@ const StudentsSchema = new Schema(
       postedBy: {
          type: ObjectId,
          ref: "User"
-      }
+      },
+      user: {
+         type: String,
+         required: true
+      },
 
 
    }
