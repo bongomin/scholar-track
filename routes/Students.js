@@ -14,20 +14,20 @@ const { addStudent,
    delete_sudent_info
 } = require('../controllers/Students')
 
-router.get('/register_student', ensureAuthenticated, register_student_page)
-router.get('/register_parent', ensureAuthenticated, register_parents_page)
-router.get('/reports', ensureAuthenticated, reports_page)
-router.get('/', ensureAuthenticated, allStudents_page);
+router.get('/register_student', register_student_page)
+router.get('/register_parent', register_parents_page)
+router.get('/reports', reports_page)
+router.get('/', allStudents_page);
 // editing process to allow editing/
-router.get('/edit/:id', ensureAuthenticated, edit_sudent_info);
+router.get('/edit/:id', edit_sudent_info);
 // putting request /editting
-router.put('/:id', ensureAuthenticated, put_sudent_info);
+router.put('/:id', put_sudent_info);
 // Delete Student
-router.delete('/:id', ensureAuthenticated, delete_sudent_info);
+router.delete('/:id', delete_sudent_info);
 
 
 //registering new student
-router.post('/add', ensureAuthenticated, addStudent);
+router.post('/add', addStudent);
 
 
 

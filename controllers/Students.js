@@ -1,5 +1,9 @@
 
+
 var mongoose = require('mongoose')
+
+// require('../models/Users')
+// var user = mongoose.model('users')
 require('../models/Students')
 var Student = mongoose.model('students')
 
@@ -81,7 +85,7 @@ exports.delete_sudent_info = (req, res) => {
 
 ///displaying all students
 exports.allStudents_page = (req, res) => {
-   Student.find({})
+   Student.find({ user: req.user.id })
       .sort({ date: 'desc' })
       .then(students => {
          res.render('Students/all_students', {
@@ -149,7 +153,8 @@ exports.addStudent = (req, res) => {
          p_residence: req.body.p_residence,
          p_email: req.body.p_email,
          p_map: req.body.p_map,
-         date: req.body.date
+         date: req.body.date,
+         user: req.user.id
       }
 
       new Student(newStudent).save()
