@@ -14,7 +14,6 @@ exports.login = (req, res) => {
 exports.register = (req, res) => {
    res.render('register');
 }
-
 // Login Form Post
 
 exports.LoginPost = (req, res, next) => {
