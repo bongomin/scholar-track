@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var homeRoute = require('./routes/home')
 var studentsRoute = require('./routes/Students')
+var ParentsRoute = require('./routes/Parents')
 var mongoose = require('mongoose');
 var passport = require('passport')
 var bodyParser = require('body-parser')
@@ -105,6 +106,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', homeRoute);
 app.use('/student', studentsRoute);
+app.use('/Parents', ParentsRoute);
 
 
 

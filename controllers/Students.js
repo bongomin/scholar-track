@@ -1,5 +1,3 @@
-
-
 var mongoose = require('mongoose')
 
 // require('../models/Users')
@@ -25,16 +23,9 @@ exports.edit_sudent_info = (req, res) => {
       _id: req.params.id
    })
       .then(student => {
-         if (req.user != req.user.id) {
-            req.flash('error_msg', 'Not Authorized')
-            res.redirect('/main')
-         } else {
-            res.render('Students/edit_student', {
-               student: student
-            })
-
-         }
-
+         res.render('Students/edit_student', {
+            student: student
+         })
       })
 }
 
@@ -91,7 +82,7 @@ exports.delete_sudent_info = (req, res) => {
 
 ///displaying all students
 exports.allStudents_page = (req, res) => {
-   Student.find({ user: req.id })
+   Student.find({})
       .sort({ date: 'desc' })
       .then(students => {
          res.render('Students/all_students', {

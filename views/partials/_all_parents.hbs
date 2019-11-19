@@ -1,0 +1,67 @@
+<style>
+   .fa:hover {
+      cursor: pointer;
+   }
+</style>
+{{> _msg}}
+<div class="registerStudentForm">
+   <div id="allstudents">
+      <div class="panel panel-primary">
+         <div class="panel-heading" style="background: darkblue;">All Parents List</div>
+         <div class="panel-body">
+            <table class="table table-hover table-dark" style="font-size: 12px;">
+               <thead>
+                  <tr>
+                     <th scope="col">Sponsorship_No</th>
+                     <th scope="col">Full Names</th>
+                     <th scope="col">Age</th>
+                     <th scope="col">Occupation</th>
+                     <th scope="col">RelationShip</th>
+                     <th scope="col">Contact</th>
+                     <th scope="col">contact</th>
+                     <th scope="col">Action</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {{#each parents}}
+                  <tr>
+                     <td>{{sponsorship_No}}</td>
+                     <td style="  text-transform: capitalize;">{{p_first_name}}</td>
+                     <td>{{gender}}</td>
+                     <td style="  text-transform: capitalize;">{{p_age}}</td>
+                     <td style="  text-transform: capitalize;">{{p_occupation}}</td>
+                     <td style="  text-transform: capitalize;">{{p_relationship}}</td>
+                     <td>{{p_contact}}</td>
+                     <td>
+                        <form action="/parents/{{id}}?_method=DELETE" method="post">
+                           <input type="hidden" name="_method" value="Delete">
+                           {{!-- <input type="submit" value="Delete" class="btn btn-danger pull-left m-1"> --}}
+                           <button type="submit" class="btn btn-danger pull-left ">
+                              <i class="fa fa-trash"></i>
+                           </button>
+                        </form>
+                        {{!-- <a href="#myModal" class="trigger-btn" data-toggle="modal">
+                           <i class="fa fa-trash" style="color:red" aria-hidden="true"></i>
+                        </a> --}}
+                        <a class="btn btn-primary" style="margin-left:2px;" href="Parents/edit/{{id}}">
+                           <i class="fa fa-pencil-square-o " style="color:white; " aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                           <i class="fa fa-crosshairs" style="color:darkblue;" aria-hidden="true"> more info</i>
+                        </a>
+
+
+
+                     </td>
+                  </tr>
+                  {{else}}
+                  <p>No Parent Registered</p>
+                  {{/each}}
+               </tbody>
+            </table>
+
+         </div>
+      </div>
+   </div>
+
+</div>

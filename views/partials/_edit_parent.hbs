@@ -1,5 +1,6 @@
 <div class="registerparentdiv">
-   <form action="/parents/add" method="Post">
+   <form action="/Parents/{{parent.id}}?_method=PUT" method="post">
+      <input type="hidden" name="_method" value="PUT">
       <div class="panel panel-primary">
          <div class="panel-heading" style="background: darkblue;">Register Student's Parent</div>
          <div class="panel-body">

@@ -81,9 +81,8 @@ const StudentsSchema = new Schema(
       user: {
          type: String,
          required: true
-      },
 
-
+      }
    }
 )
 
