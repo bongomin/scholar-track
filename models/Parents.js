@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const { ObjectId } = mongoose.Schema
 
 // Parents Schem
 const ParentsSchema = new Schema(
@@ -47,9 +48,13 @@ const ParentsSchema = new Schema(
       location_map: {
          data: Buffer,
          contentType: String
-      }, user: {
+      },
+      postedBy: {
+         type: ObjectId,
+         ref: "User"
+      },
+      user: {
          type: String,
-         required: true
       }
    }
 )
