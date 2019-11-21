@@ -8,7 +8,7 @@ var { register_parents_page, register_parent, allparents, delete_parent_info, ed
 router.get('/', allparents);
 // adding parent to database
 router.post('/add', register_parent);
-// endpoint for regiter parents page
+// endpoint for wregiter parents page
 router.get('/register_parent', register_parents_page)
 // deleting parents info
 router.delete('/:id', delete_parent_info)

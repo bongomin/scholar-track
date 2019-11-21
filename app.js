@@ -26,7 +26,8 @@ require('./config/passport')(passport);
 
 // DB config 
 var db = require('./config/database');
-
+// handlebars Helpers
+const { select, formatDate } = require('./helpers/hbs_helpers')
 // map global promisies / get reed of worning
 mongoose.Promise = global.Promise;
 mongoose.connect(db.mongoURI, {
@@ -48,7 +49,7 @@ app.use(session({
   secret: 'secret',
   resave: true,
   saveUninitialized: true
-}))
+}));
 
 //passport middleware//serializers / sessions middlware
 app.use(passport.initialize());
@@ -79,6 +80,12 @@ app.set('view engine', 'hbs');
 
 // template engine static file locater
 app.engine('hbs', hbs({
+  helpers: {
+    formatDate: formatDate,
+    select: select,
+
+
+  },
   extname: 'hbs',
   defaultLayout: 'layout',
   layoutsDir: path.join(__dirname, 'views'),
@@ -106,7 +113,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', homeRoute);
 app.use('/student', studentsRoute);
-app.use('/Parents', ParentsRoute);
+app.use('/Parents', ParentsRoute)
 
 
 

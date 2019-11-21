@@ -21,7 +21,8 @@ const StudentsSchema = new Schema(
          type: String
       },
       religion: {
-         type: String
+         type: String,
+         default: 'Christian'
       },
       student_class: {
          type: String
@@ -38,10 +39,6 @@ const StudentsSchema = new Schema(
       passport_img: {
          data: Buffer,
          contentType: String
-      },
-      date: {
-         type: Date,
-         default: Date.now
       },
       p_first_name: {
          type: String
@@ -75,15 +72,18 @@ const StudentsSchema = new Schema(
          contentType: String
       },
       postedBy: {
-         type: ObjectId,
-         ref: "User"
+         type: Schema.Types.ObjectId,
+         ref: "users"
       },
       user: {
-         type: String,
-         required: true
-
-      }
+         type: Schema.Types.ObjectId,
+         ref: "users"
+      },
+      date: {
+         type: Date,
+         default: Date.now
+      },
    }
-)
+);
 
-mongoose.model('students', StudentsSchema);
+mongoose.model('students', StudentsSchema, 'students');

@@ -5,6 +5,8 @@ var mongoose = require('mongoose')
 require('../models/Students')
 var Student = mongoose.model('students')
 
+
+
 exports.register_parents_page = (req, res) => {
    res.render('Parents/register_parent')
 }
@@ -150,8 +152,7 @@ exports.addStudent = (req, res) => {
          p_residence: req.body.p_residence,
          p_email: req.body.p_email,
          p_map: req.body.p_map,
-         date: req.body.date,
-         user: req.user.id
+         date: req.body.date
       }
 
       new Student(newStudent).save()
