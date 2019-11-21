@@ -21,10 +21,12 @@
                      placeholder="Date of Birth ">
                </div>
                <div class="form-group m-0 p-0 col-md-6">
-                  <select class="form-control" value="{{student.gender}}" name="gender" id="exampleFormControlSelect1">
+                  <select class="form-control" name="gender">
+                     {{#select student.gender}}
                      <option>Female</option>
                      <option>Male</option>
                      <option>Others</option>
+                     {{/select}}
                   </select>
                </div>
                <div class="form-group col-md-6">
@@ -32,8 +34,18 @@
                      placeholder="Religion /Faith ">
                </div>
                <div class="form-group col-md-6">
-                  <input type="text" class="form-control" value="{{student.student_class}}" name="class"
-                     placeholder="Class / Educational Level ">
+                  <select class="form-control" name="student_class">
+                     {{#select student.student_class}}
+                     <option>Select Class</option>
+                     <option>Senior One</option>
+                     <option>Senior Two</option>
+                     <option>Senior Three</option>
+                     <option>Senior Four</option>
+                     <option>Senior Five</option>
+                     <option>Senior Six</option>
+                     <option>Senior University</option>
+                     {{/select}}
+                  </select>
                </div>
                <div class="form-group col-md-6">
                   <input type="text" class="form-control" value="{{student.residence}}" name="residence"
@@ -82,12 +94,13 @@
                      placeholder="Occupation ">
                </div>
                <div class="form-group m-0 p-0 col-md-6">
-                  <select class="form-control" value="{{student.p_relationship}}" name="p_relationship"
-                     id="exampleFormControlSelect1">
+                  <select class="form-control" name="p_relationship" id="exampleFormControlSelect1">
+                     {{#select student.p_relationship}}
                      <option>Relationship to Child</option>
                      <option>Father</option>
                      <option>Mother</option>
                      <option>Gurdian</option>
+                     {{/select}}
                   </select>
                </div>
                <div class="form-group col-md-6">

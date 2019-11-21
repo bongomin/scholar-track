@@ -14,6 +14,10 @@ const { addStudent,
    delete_sudent_info
 } = require('../controllers/Students')
 
+
+// Handlebars Helpers
+const { select, formatDate } = require('../helpers/hbs_helpers');
+
 router.get('/register_student', register_student_page)
 router.get('/reports', reports_page)
 router.get('/', allStudents_page);

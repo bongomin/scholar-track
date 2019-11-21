@@ -4,6 +4,7 @@ var mongoose = require('mongoose')
 require('../models/Users')
 var User = mongoose.model('users')
 
+
 // firtst login page
 exports.login = (req, res) => {
    res.render('index');

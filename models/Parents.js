@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const { ObjectId } = mongoose.Schema
 
-// Parents Schem
+// Parents Schema
 const ParentsSchema = new Schema(
    {
       sponsorship_No: {
@@ -50,8 +50,8 @@ const ParentsSchema = new Schema(
          contentType: String
       },
       postedBy: {
-         type: ObjectId,
-         ref: "User"
+         type: Schema.Types.ObjectId,
+         ref: "users"
       },
       user: {
          type: String,
