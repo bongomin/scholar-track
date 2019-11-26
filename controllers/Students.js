@@ -1,4 +1,6 @@
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
+var fs = require('fs');
+var multer = require('multer');
 
 // require('../models/Users')
 // var user = mongoose.model('users')
@@ -33,6 +35,7 @@ exports.edit_sudent_info = (req, res) => {
 
 // Edit form process
 exports.put_sudent_info = (req, res) => {
+   const passport_img = req.file;
    Student.findOne({
       _id: req.params.id
    })
@@ -47,7 +50,9 @@ exports.put_sudent_info = (req, res) => {
          updated_Student.residence = req.body.residence;
          updated_Student.contact = req.body.contact;
          updated_Student.email = req.body.email;
-         updated_Student.passport_img = req.body.passport_img;
+         if (passport_img) {
+            updated_Student.passport_img = image.path;
+         }
          updated_Student.p_first_name = req.body.p_first_name;
          updated_Student.p_second_name = req.body.p_second_name;
          updated_Student.p_age = req.p_age;
@@ -94,8 +99,28 @@ exports.allStudents_page = (req, res) => {
 }
 
 
+// Displaying Single student info
+exports.SingleStudentInfo = (req, res, next) => {
+   Student.findOne({
+      _id: req.params.id
+   })
+      .then(studentInfo => {
+         res.send(studentInfo);
+         fs.writeFileSync('studentProfile.txt', studentInfo)
+      })
+      .catch((err) => {
+         res.json(err)
+
+      })
+}
+
+
 ///adding new student
 exports.addStudent = (req, res) => {
+   //  creating a constant that holds the image url
+   const passport_img = req.file;
+   const studentImageUrl = passport_img.path;
+   //  ann error array
    let errors = [];
    if (!req.body.sponsorship_No) {
       errors.push({ text: "Please add sponsorship number" });
@@ -125,12 +150,27 @@ exports.addStudent = (req, res) => {
          full_name: req.body.full_name,
          dob: req.body.dob,
          gender: req.body.gender,
+         religion: req.body.religion,
          student_class: req.body.student_class,
+         residence: req.body.residence,
          contact: req.body.contact,
-         email: req.body.email
+         email: req.body.email,
+         passport_img: studentImageUrl,
+         p_first_name: req.body.p_first_name,
+         p_second_name: req.body.p_second_name,
+         p_age: req.body.p_age,
+         p_occupation: req.body.p_occupation,
+         p_relationship: req.body.p_relationship,
+         p_no_siblings: req.body.p_no_siblings,
+         p_contact: req.body.p_contact,
+         p_residence: req.body.p_residence,
+         p_email: req.body.p_email,
+         p_map: req.body.p_map,
+         date: req.body.date
 
       })
    } else {
+      console.log(studentImageUrl);
       const newStudent = {
          sponsorship_No: req.body.sponsorship_No,
          full_name: req.body.full_name,
@@ -141,10 +181,10 @@ exports.addStudent = (req, res) => {
          residence: req.body.residence,
          contact: req.body.contact,
          email: req.body.email,
-         passport_img: req.body.passport_img,
+         passport_img: studentImageUrl,
          p_first_name: req.body.p_first_name,
          p_second_name: req.body.p_second_name,
-         p_age: req.p_age,
+         p_age: req.body.p_age,
          p_occupation: req.body.p_occupation,
          p_relationship: req.body.p_relationship,
          p_no_siblings: req.body.p_no_siblings,
@@ -154,9 +194,11 @@ exports.addStudent = (req, res) => {
          p_map: req.body.p_map,
          date: req.body.date
       }
-
+      console.log("students info from front:", newStudent)
+      console.log(studentImageUrl)
       new Student(newStudent).save()
          .then((student) => {
+            console.log(student)
             req.flash('success_msg', 'New Student has been added into the system')
             res.redirect('/student');
          })

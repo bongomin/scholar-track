@@ -16,6 +16,8 @@ var methodOverride = require('method-override');
 var flash = require('connect-flash');
 var session = require('express-session');
 var { ensureAuthenticated } = require('./helpers/auth')
+var multer = require('multer');
+
 
 
 
@@ -37,9 +39,34 @@ mongoose.connect(db.mongoURI, {
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
 
+// file Storage //cb is callback
+const fileStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'images')
+  },
+  filename: (req, file, cb) => {
+    cb(null, new Date().toString() + '_' + file.originalname);
+  }
+})
+
+const filefilter = (req, file, cb) => {
+  if (file.mimetype === 'image/png' ||
+    file.mimetype === 'image/jpeg' ||
+    file.mimetype === 'image/jpg' ||
+    file.mimetype === 'image/pdf') {
+    cb(null, true)
+  } else {
+    cb(null, false)
+
+  }
+
+}
+
 
 // body-parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
+// multer middleware for hanndling files // it is creating an image folder called images where it stores images
+app.use(multer({ storage: fileStorage }).single('passport_img'))
 app.use(bodyParser.json());
 // method overide middleware
 app.use(methodOverride('_method'));

@@ -11,7 +11,8 @@ const { addStudent,
    allStudents_page,
    edit_sudent_info,
    put_sudent_info,
-   delete_sudent_info
+   delete_sudent_info,
+   SingleStudentInfo
 } = require('../controllers/Students')
 
 
@@ -29,6 +30,7 @@ router.put('/:id', put_sudent_info);
 router.delete('/:id', delete_sudent_info);
 //registering new student
 router.post('/add', addStudent);
+router.get('/studentInfo/:id', SingleStudentInfo)
 
 
 

@@ -37,8 +37,7 @@ const StudentsSchema = new Schema(
          type: String
       },
       passport_img: {
-         data: Buffer,
-         contentType: String
+         type: String
       },
       p_first_name: {
          type: String
