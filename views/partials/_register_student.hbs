@@ -1,5 +1,5 @@
 <div class="registerStudentForm">
-   <form action="/student/add" method="Post">
+   <form action="/student/add" method="Post" enctype="multipart/form-data">
       <div id="studentForm">
          <div class="panel panel-primary">
             <div class="panel-heading" style="background: darkblue;">Students Info</div>
@@ -47,10 +47,9 @@
                   <input type="text" class="form-control" name="email" placeholder="Email @example.com">
                </div>
                <div class="form-group col-md-6">
-                  <label for="customFile" class="col-sm-4 col-form-label">Passport image</label>
+                  <label class="col-sm-4 col-form-label">Passport image</label>
                   <div class="col-sm-6">
-                     <input type="file" name="passport_img" class="custom-file-input" id="customFile"
-                        style="height: 80px;">
+                     <input type="file" name="passport_img" id="passport_img">
                   </div>
                </div>
                <span class="pull-right" onclick="next()" style="cursor: pointer;"> Next <i class="fa fa-arrow-right"
@@ -98,7 +97,7 @@
                <div class="form-group col-md-6">
                   <label for="customFile" class="col-sm-5 col-form-label">Map attouchment</label>
                   <div class="col-sm-6">
-                     <input type="file" name="p_map" class="custom-file-input" id="customFile" style="height: 80px;">
+                     <input type="file" name="p_map">
                   </div>
                </div>
                <button type="submit" class="btn btn-default pull-right" style="background:darkblue;color:aliceblue;">
