@@ -3,6 +3,16 @@ var passport = require('passport')
 var mongoose = require('mongoose')
 require('../models/Users')
 var User = mongoose.model('users')
+var nodemailer = require('nodemailer');
+var sendgridTransport = require('nodemailer-sendgrid-transport');
+
+
+//  configuring mail server using senddrid
+var transporter = nodemailer.createTransport(sendgridTransport({
+   auth: {
+      api_key: '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'
+   }
+}));
 
 
 // firtst login page
@@ -93,6 +103,18 @@ exports.postUser = (req, res) => {
                         .then(user => {
                            req.flash('success_msg', 'You are now registered and can log in');
                            res.redirect('/');
+                           return transporter.sendMail({
+                              to: req.body.email,
+                              from: 'bongomindaniel@gmail.com',
+                              subject: 'You have successfull signed Up to the Scholar Tracker!',
+                              html: '<h2>You Successfully Signed Up to Scholar Tracker</h2>'
+
+                           }).catch(err => {
+                              console.log(err);
+                              return;
+
+                           })
+
                         })
                         .catch(err => {
                            console.log(err);
