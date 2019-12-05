@@ -7,11 +7,14 @@ const StudentsSchema = new Schema(
    {
       sponsorship_No: {
          type: String,
-         required: true
+         required: true,
+         uppercase: true
+
       },
       full_name: {
          type: String,
-         required: true
+         required: true,
+         uppercase: true
       },
       dob: {
          type: Date,
@@ -22,7 +25,8 @@ const StudentsSchema = new Schema(
       },
       religion: {
          type: String,
-         default: 'Christian'
+         default: 'Christian',
+         uppercase: true
       },
       student_class: {
          type: String
