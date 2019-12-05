@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var { login, register, postUser, LoginPost, LogoutUser } = require('../controllers/users')
+var crypto = require('crypto');
+var { login, register, postUser, LoginPost, LogoutUser, ResetPassord, PostResetPassword, newPassword } = require('../controllers/users')
 
 
 router.get('/login', login);
@@ -11,5 +12,11 @@ router.post('/register', postUser);
 
 router.post('/login', LoginPost)
 router.get('/logout', LogoutUser);
+
+router.get('/reset', ResetPassord);
+router.post('/reset', PostResetPassword);
+// getting password reset page
+router.get('/password-reset/:token', newPassword)
+
 
 module.exports = router;

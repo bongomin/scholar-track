@@ -4,9 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('express-handlebars');
-var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var homeRoute = require('./routes/home')
 var studentsRoute = require('./routes/Students')
 var ParentsRoute = require('./routes/Parents')
 var mongoose = require('mongoose');
@@ -21,7 +19,11 @@ var multer = require('multer');
 
 
 
+
 var app = express();
+
+
+
 
 // passport Load
 require('./config/passport')(passport);
@@ -128,17 +130,28 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+// index page first page
+app.get('/', (req, res) => {
+  res.render('index');
+})
+
+app.get('/main', (req, res) => {
+  res.render('main');
+})
+
+
+// about page
 app.get('/about', (req, res) => {
   res.render('about')
 })
 
-
+// contact page
 app.get('/contact', (req, res) => {
   res.render('contact')
 })
-app.use('/', indexRouter);
+
+// calling routes
 app.use('/users', usersRouter);
-app.use('/', homeRoute);
 app.use('/student', studentsRoute);
 app.use('/Parents', ParentsRoute)
 
