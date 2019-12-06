@@ -1,5 +1,6 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -11,13 +12,23 @@
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
    }
 
+   * a {
+      text-decoration: none;
+
+   }
+
    a {
+      text-decoration: none;
+   }
+
+   li {
       text-decoration: none;
    }
 
    .card ul li:hover {
       border-right: 5px solid darkblue;
       color: darkblue;
+      text-decoration: none;
       cursor: pointer;
    }
 
@@ -125,8 +136,8 @@
    <div class="menus" style="margin-top: 10px;">
       <div class="row">
          <ul class="nav nav-tabs">
-            <li class="active"><a href="/student/register_student">Register Student</a></li>
-            <li><a href="/Parents/register_parent">Register Parent</a></li>
+            <li class="active"><a href="/student/register_student">Students</a></li>
+            <li><a href="/Parents/register_parent">Parents</a></li>
             <li><a href="/student/reports">Reports</a></li>
             <li><a>Scholars</a></li>
          </ul>
@@ -141,13 +152,34 @@
                   <div class="card">
                      <ul class="list-group">
                         <a href="/student/register_student">
-                           <li class="list-group-item">register Students </li>
+                           <li class="list-group-item">
+                              <i class="fa fa-pencil" aria-hidden="true"></i>
+                              &nbsp register Students
+                           </li>
                         </a>
                         <a href="/student">
-                           <li class="list-group-item">Students</li>
+                           <li class="list-group-item">
+                              <i class="fa fa-users" aria-hidden="true"></i>
+                              &nbsp Students
+                           </li>
                         </a>
                         <a href="">
-                           <li class="list-group-item">Reports</li>
+                           <li class="list-group-item">
+                              <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                              &nbsp Reports
+                           </li>
+                        </a>
+                        <a href="">
+                           <li class="list-group-item">
+                              <i class="fa fa-folder-open" aria-hidden="true"></i>
+                              &nbsp FeedBacks
+                           </li>
+                        </a>
+                        <a href="">
+                           <li class="list-group-item">
+                              <i class="fa fa-university" aria-hidden="true"></i>
+                              Home Visits
+                           </li>
                         </a>
                      </ul>
                   </div>

@@ -9,6 +9,11 @@
       text-decoration: none;
    }
 
+   * a {
+      text-decoration: none;
+
+   }
+
    .menus {
       margin-top: 10px;
 
@@ -24,8 +29,8 @@
    <div class="menus" style="margin-top: 60px;">
       <div class="row">
          <ul class="nav nav-tabs">
-            <li class="active"><a href="/student/register_student">Register Student</a></li>
-            <li><a href="/Parents/register_parent">Register Parent</a></li>
+            <li class="active"><a href="/student/register_student">Students</a></li>
+            <li><a href="/Parents/register_parent">Parents</a></li>
             <li><a href="/student/reports">Reports</a></li>
             <li><a>Scholars</a></li>
          </ul>
@@ -40,13 +45,34 @@
                   <div class="card">
                      <ul class="list-group">
                         <a href="/student/register_student">
-                           <li class="list-group-item">register Students </li>
+                           <li class="list-group-item" style="text-decoration: none;">
+                              <i class="fa fa-pencil" aria-hidden="true"></i>
+                              &nbsp register Students
+                           </li>
                         </a>
                         <a href="/student">
-                           <li class="list-group-item">Students</li>
+                           <li class="list-group-item" style="text-decoration: none;">
+                              <i class="fa fa-users" aria-hidden="true"></i>
+                              &nbsp Students
+                           </li>
                         </a>
                         <a href="">
-                           <li class="list-group-item">Reports</li>
+                           <li class="list-group-item" style="text-decoration: none;">
+                              <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                              &nbsp Reports
+                           </li>
+                        </a>
+                        <a href="">
+                           <li class="list-group-item" style="text-decoration: none;">
+                              <i class="fa fa-folder-open" aria-hidden="true"></i>
+                              &nbsp FeedBacks
+                           </li>
+                        </a>
+                        <a href="">
+                           <li class="list-group-item" style="text-decoration: none;">
+                              <i class="fa fa-university" aria-hidden="true"></i>
+                              &nbsp Home Visits
+                           </li>
                         </a>
                      </ul>
                   </div>
