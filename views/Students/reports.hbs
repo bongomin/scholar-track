@@ -1,10 +1,96 @@
-<div class="registerStudentForm">
-   <div id="allstudents">
-      <div class="panel panel-primary">
-         <div class="panel-heading" style="background: darkblue;">All Students</div>
-         <div class="panel-body">
-            Reports here
+<style>
+   .nav-tabs li {
+      cursor: pointer;
+      font-size: 11px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   }
+
+   a {
+      text-decoration: none;
+   }
+
+   * a {
+      text-decoration: none;
+
+   }
+
+   .menus {
+      margin-top: 10px;
+
+   }
+
+   .card ul li:hover {
+      border-right: 5px solid darkblue;
+      color: darkblue;
+      cursor: pointer;
+   }
+</style>
+<div class="container">
+   <div class="menus" style="margin-top: 60px;">
+      <div class="row">
+         <ul class="nav nav-tabs">
+            <li class="active"><a href="/student/register_student">Students</a></li>
+            <li><a href="/Parents/register_parent">Parent</a></li>
+            <li><a href="/student/reports">Reports</a></li>
+            <li><a>Scholars</a></li>
+         </ul>
+      </div>
+   </div>
+   <div class="container-fluid" style="margin-top: 5px;">
+      <div class="row">
+         <div id="registerStudentDiv">
+            {{!-- students left menu --}}
+            <div class="col-md-2 col-sm-2 hidden-xs">
+               <div class="row">
+                  <div class="card">
+                     <ul class="list-group">
+                        <a href="/student/register_student">
+                           <li class="list-group-item">
+                              <i class="fa fa-pencil" aria-hidden="true"></i>
+                              &nbsp register Students
+                           </li>
+                        </a>
+                        <a href="/student">
+                           <li class="list-group-item">
+                              <i class="fa fa-users" aria-hidden="true"></i>
+                              &nbsp Students
+                           </li>
+                        </a>
+                        <a href="/student/reports">
+                           <li class="list-group-item">
+                              <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                              &nbsp Reports
+                           </li>
+                        </a>
+                        <a href="/feedback">
+                           <li class="list-group-item">
+                              <i class="fa fa-folder-open" aria-hidden="true"></i>
+                              &nbsp FeedBacks
+                           </li>
+                        </a>
+                        <a href="/homevisit">
+                           <li class="list-group-item">
+                              <i class="fa fa-university" aria-hidden="true"></i>
+                              Home Visits
+                           </li>
+                        </a>
+                        <a href="/medical">
+                           <li class="list-group-item">
+                              <i class="fa fa-thermometer-full" aria-hidden="true"></i>
+                              &nbsp Medical
+                           </li>
+                        </a>
+                     </ul>
+                  </div>
+                  {{> _errors}}
+               </div>
+            </div>
+            {{!-- students right content --}}
+            <div class="col-md-10 col-sm-10">
+               {{>_student_reports}}
+            </div>
          </div>
+
       </div>
    </div>
 

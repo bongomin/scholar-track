@@ -1,7 +1,4 @@
 
-function studentsFunction() {
-   window.open()
-}
 
 function parentsFunction() {
    document.getElementById('studentsdiv').style.display = "none"

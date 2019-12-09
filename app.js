@@ -4,9 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('express-handlebars');
-var usersRouter = require('./routes/users');
-var studentsRoute = require('./routes/Students')
-var ParentsRoute = require('./routes/Parents')
 var mongoose = require('mongoose');
 var passport = require('passport')
 var bodyParser = require('body-parser')
@@ -21,6 +18,17 @@ var multer = require('multer');
 
 
 var app = express();
+
+
+// calling routes
+var usersRouter = require('./routes/users');
+var studentsRoute = require('./routes/Students')
+var ParentsRoute = require('./routes/Parents')
+var feedBackRouter = require('./routes/feedbacks');
+var homeVisitsRouter = require('./routes/homevisits');
+var contactRouter = require('./routes/contact');
+var studentProfile = require('./routes/student_profile');
+var medicalRouter = require('./routes/medical');
 
 
 
@@ -128,6 +136,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// serving images folder
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 
 // index page first page
@@ -153,7 +163,13 @@ app.get('/contact', (req, res) => {
 // calling routes
 app.use('/users', usersRouter);
 app.use('/student', studentsRoute);
-app.use('/Parents', ParentsRoute)
+app.use('/Parents', ParentsRoute);
+app.use('/feedback', feedBackRouter);
+app.use('/homevisit', homeVisitsRouter);
+app.use('/contact', contactRouter);
+app.use('/medical', medicalRouter);
+app.use('/profile', studentProfile);
+
 
 
 
