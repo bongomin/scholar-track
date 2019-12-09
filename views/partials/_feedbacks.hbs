@@ -1,0 +1,101 @@
+<style>
+   .fa:hover {
+      cursor: pointer;
+   }
+
+   * a {
+      text-decoration: none;
+
+   }
+
+   .border-bottom {
+      box-shadow: none !important;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+   }
+
+   .border-bottom-line {
+      border-bottom: 2px solid #000;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+   }
+</style>
+{{> _msg}}
+<div class="feedBackForm">
+   <div id="feedbacks">
+      <div class="panel panel-primary">
+         <div class="panel-heading" style="background: darkblue;">Feedback</div>
+         <div class="panel-body">
+
+            <h4 class="text-center border-bottom-line">Questions</h4>
+            {{> _errors}}
+            <form action="feedback/send" method="POST">
+               <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-3 col-form-label">Scholarship Number</label>
+                  <div class="col-sm-9">
+                     <input type="text" class="form-control border-bottom" id="inputPassword" name="scholarship_no">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <div class="col-md-6">
+                     <label>My Name is</label>
+                     <input type="text" class="form-control border-bottom col-md-6" name="student_name">
+                  </div>
+                  <div class="col-md-6">
+                     <label>I am</label>
+                     <input type="text" class="form-control border-bottom col-md-6" name="reason_one">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <div class="col-md-6">
+                     <label>My school is</label>
+                     <input type="text" class="form-control border-bottom col-md-6" name="school_name">
+                  </div>
+                  <div class="col-md-6">
+                     <label>I am</label>
+                     <input type="text" class="form-control border-bottom col-md-6" name="reason_two">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <div class="col-md-6">
+                     <label>My family members are</label>
+                     <input type="text" name="no_family_members" class="form-control border-bottom col-md-6">
+                  </div>
+                  <div class="col-md-6">
+                     <label>My favorite teacher is</label>
+                     <input type="text" name="favourite_teacher" class="form-control border-bottom col-md-6">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <div class="col-md-6">
+                     <label>My best subject is</label>
+                     <input type="text" name="best_subject" class="form-control border-bottom col-md-6">
+                  </div>
+                  <div class="col-md-6">
+                     <label>My favorite food is</label>
+                     <input type="text" name="favorite_food" class="form-control border-bottom col-md-6">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <div class="col-md-6">
+                     <label>I want to become a</label>
+                     <input type="text" name="future_aim" class="form-control border-bottom col-md-6">
+                  </div>
+                  <div class="col-md-6">
+                     <label>Message to my sponsor</label>
+                     <input type="text" name="message_to_sponsors" class="form-control border-bottom col-md-6">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <div class="col-md-6">
+                     <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+               </div>
+            </form>
+
+         </div>
+      </div>
+   </div>
+
+</div>

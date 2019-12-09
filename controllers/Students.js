@@ -14,7 +14,7 @@ exports.register_parents_page = (req, res) => {
 }
 
 exports.reports_page = (req, res) => {
-   res.render('reports')
+   res.render('Students/reports')
 }
 
 exports.register_student_page = (req, res) => {
@@ -81,11 +81,8 @@ exports.addStudent = (req, res) => {
    //  creating a constant that holds the image url
    const passport_img = req.file;
    const studentImageUrl = passport_img.path;
-   //  ann error array
+
    let errors = [];
-   if (!req.body.sponsorship_No) {
-      errors.push({ text: "Please add sponsorship number" });
-   }
    if (!req.body.full_name) {
       errors.push({ text: "Please provide Student's Full name " });
    }

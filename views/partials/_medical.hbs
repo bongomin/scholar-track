@@ -1,0 +1,80 @@
+<style>
+   .fa:hover {
+      cursor: pointer;
+   }
+
+   * a {
+      text-decoration: none;
+
+   }
+
+   .ck-editor__editable_inline {
+      min-height: 200px;
+      max-height: 400px;
+   }
+</style>
+{{> _msg}}
+<div class="registerStudentForm">
+   <div id="allstudents">
+      <div class="panel panel-primary">
+         <div class="panel-heading" style="background: darkblue;">Medical Report Attouchment</div>
+         <div class="panel-body">
+
+
+            <form action="">
+               <div class="panel panel-default">
+                  <div class="panel-body">
+                     <div class="row m-2">
+                        <div class="col-md-5">
+                           <div class="form-group">
+                              <label>Scholarship Number</label>
+                              <input type="text" name="sponsorship_no" class="form-control form-control-sm">
+                           </div>
+                        </div>
+                        <div class="col-md-4">
+                           <div class="form-group">
+                              <label>Students Name</label>
+                              <input type="text" name="m_name" class="form-control form-control-sm">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Age</label>
+                              <input type="text" name="m_age" class="form-control form-control-sm">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col-md-9 col-md-offset-1" style="margin-top: 70px;">
+                  <div class="form-group">
+                     <div class="input-group input-file" name="medicalAttouchment">
+                        <span class="input-group-btn">
+                           <button class="btn btn-default btn-choose" type="button">Choose</button>
+                        </span>
+                        <input type="file" class="form-control" placeholder='Choose Medical File...' />
+                        <span class="input-group-btn">
+                           <button class="btn btn-warning btn-reset" type="button">Reset</button>
+                        </span>
+                     </div>
+                  </div>
+                  <p>
+                     <center>
+                        <small>
+                           Please Select the Scanned Medical Form Of The Child and Attouch to a specific child
+                        </small>
+                     </center>
+
+                  </p>
+            </form>
+
+
+
+
+
+         </div>
+      </div>
+   </div>
+
+</div>

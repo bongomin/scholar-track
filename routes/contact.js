@@ -1,11 +1,10 @@
-const express = require('express');
-const router = express.Router;
+var express = require('express');
+var router = express.Router();
 
-const { postContacts, contactPage } = require('../controllers/contact')
+var { contactPage, postContacts } = require('../controllers/contact');
 
 
 router.get('/', contactPage);
-
 router.post('/add', postContacts);
 
 

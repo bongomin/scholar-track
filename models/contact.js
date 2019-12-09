@@ -2,29 +2,26 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const ContactForm = new Schema({
-   f_name: {
-      type: String,
-      required: true
-   },
-   s_name: {
-      type: String,
-      required: true
-   },
-   email: {
-      type: String,
-      required: true
-   },
-   phone: {
-      type: String,
-      required: true
-   },
-   meassage: {
-      type: String,
-      required: true
+const Contactform = new Schema(
+   {
+      f_name: {
+         type: String
+      },
+      s_name: {
+         type: String
+      },
+      email: {
+         type: String
+      },
+      phone: {
+         type: String
+      },
+      message: {
+         type: String
+      }
+
+
    }
+)
 
-
-})
-
-mongoose.model('contacts', ContactForm);
+mongoose.model('contacts', Contactform);
