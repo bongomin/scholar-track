@@ -65,13 +65,10 @@ exports.SingleStudentInfo = (req, res, next) => {
    Student.findOne({
       _id: req.params.id
    })
-      .then(studentInfo => {
-         res.send(studentInfo);
-         fs.writeFileSync('studentProfile.txt', studentInfo)
-      })
-      .catch((err) => {
-         res.json(err)
-
+      .then(profile => {
+         res.render('Students/student_profile', {
+            profile: profile
+         })
       })
 }
 
