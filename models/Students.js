@@ -74,11 +74,7 @@ const StudentsSchema = new Schema(
          data: Buffer,
          contentType: String
       },
-      postedBy: {
-         type: Schema.Types.ObjectId,
-         ref: "users"
-      },
-      user: {
+      enteredBy: {
          type: Schema.Types.ObjectId,
          ref: "users"
       },
@@ -86,7 +82,12 @@ const StudentsSchema = new Schema(
          type: Date,
          default: Date.now
       },
-   }
+      scholarship_status: {
+         type: String,
+         required: true
+      }
+   },
+
 );
 
 mongoose.model('students', StudentsSchema, 'students');

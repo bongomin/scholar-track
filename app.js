@@ -4,14 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('express-handlebars');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 var mongoose = require('mongoose');
-var passport = require('passport')
 var bodyParser = require('body-parser')
 var methodOverride = require('method-override');
 var flash = require('connect-flash');
-var session = require('express-session');
 var { ensureAuthenticated } = require('./helpers/auth')
 var multer = require('multer');
+var User = require('./models/Users')
 
 
 
@@ -19,6 +20,7 @@ var multer = require('multer');
 
 var app = express();
 
+var passport = require('passport')
 
 // calling routes
 var usersRouter = require('./routes/users');
@@ -84,16 +86,19 @@ app.use(methodOverride('_method'));
 // express session middleware
 app.use(session({
   secret: 'secret',
-  resave: true,
-  saveUninitialized: true
+  resave: false,
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
+
+
+// flash middlware
+app.use(flash());
+
 
 //passport middleware//serializers / sessions middlware
 app.use(passport.initialize());
 app.use(passport.session());
-
-// flash middlware
-app.use(flash());
 
 
 // global variable middleware

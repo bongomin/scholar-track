@@ -132,6 +132,44 @@ exports.postUser = (req, res) => {
 
 }
 
+// displying all users
+exports.AllUsers = (req, res) => {
+   User.find({})
+      .then((users) => {
+         res.render('users', {
+            users: users
+         });
+
+      })
+      .catch(err => {
+         return err
+      });
+
+}
+
+// getting a single user
+exports.singleUser = (req, res) => {
+   User.findOne({
+      _id: req.params.id
+   }).then(user => {
+      res.json(user);
+   }).catch(err => {
+      return err;
+   })
+}
+
+// deleting a single user
+exports.deleteUser = (req, res) => {
+   User.deleteOne({
+      _id: req.params.id
+   })
+      .then(() => {
+         res.json('data removed');
+      })
+}
+
+
+
 // access to the reset password page
 exports.ResetPassord = (req, res, next) => {
    res.render('resetPassword')

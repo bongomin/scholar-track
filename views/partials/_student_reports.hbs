@@ -1,49 +1,144 @@
+<style>
+   .report1,
+   .report2,
+   .report3 {
+      background: darkblue;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 5px;
+      height: 70px;
+
+   }
+
+   .report1:hover {
+      background: rgb(233, 157, 16);
+      border-bottom: 10px solid darkblue;
+      cursor: pointer;
+
+   }
+
+   .report2:hover {
+      background: rgb(233, 157, 16);
+      border-bottom: 10px solid darkblue;
+      cursor: pointer;
+
+   }
+
+   .report3:hover {
+      background: rgb(233, 157, 16);
+      border-bottom: 10px solid darkblue;
+      cursor: pointer;
+
+   }
+
+   .list {
+      text-decoration: none;
+      list-style-type: none;
+   }
+
+   .list li {
+      float: left;
+      text-decoration: none;
+      margin: 10px;
+   }
+</style>
 <div class="registerStudentForm">
    <form action="/student/add" method="Post" enctype="multipart/form-data" id="studentform">
       <div id="studentForm">
          <div class="panel panel-primary">
-            <div class="panel-heading" style="background: darkblue;">Feed Back reports Not Available</div>
+            <div class="panel-heading" style="background: darkblue;">System Reports</div>
             <div class="panel-body">
-               FeedBack Reports Not Yet Available .....
-               <table class="table table-hover table-dark">
-                  <thead>
-                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                     </tr>
-                     <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                     </tr>
-                     <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                     </tr>
-                  </tbody>
-               </table>
+               <div class="col-md-12">
+                  <div class="row">
+                     <div class="col-md-4">
+                        <a href="/feedback/feedbacks">
+                           <div class="report1" id="report">
+                              <i class="fa fa-address-book" style="font-size:24px"></i>
+                              &nbsp Feed Back Reports
+                           </div>
+                        </a>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="report2" id="report">
+                           <i class="fa fa-address-book" style="font-size:24px"></i>
+                           &nbsp Family Visit Reports
+                        </div>
+                     </div>
+                     <div class="col-md-4" id="report">
+                        <div class="report3">
+                           <i class="fa fa-address-book" style="font-size:24px"></i>
+                           &nbsp Medical Reports
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {{!-- feebacks div --}}
+         <div class="panel panel-primary" id="feedbacks" style="display: none;">
+            <div class="panel-body">
+               <div class="row">
+                  <table class="table" style="font-size: 12;">
+                     <thead>
+                        {{feebacks}}
+                        <tr>
+                           <th>Survey Taker</th>
+                           <th>Name of Student</th>
+                           <th>District Take</th>
+                           <th>Date of Survey</th>
+                           <th>details</th>
+                           <th>Delete</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>John</td>
+                           <td>Doe</td>
+                           <td>john@example.com</td>
+                           <td>John</td>
+                           <td>Doe</td>
+                           <td>john@example.com</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+
+         {{!-- family visit div   --}}
+         <div class="panel panel-primary" id="familyvisit" style="display: none;">
+            <div class="panel-body">
+               family visit
 
             </div>
          </div>
-         <div class="panel panel-primary">
-            <div class="panel-heading" style="background: darkblue;">Home Visit Reports</div>
+
+         {{!-- medical reports div --}}
+         <div class="panel panel-primary" id="medical" style="display: none;">
             <div class="panel-body">
-               Home Reports Not yet Available .....
+               medical reports..
 
             </div>
          </div>
       </div>
    </form>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+   $('.report1').on('click', function () {
+      $('#feedbacks').fadeIn(1000);
+      $('#familyvisit').hide()
+      $('#medical').hide();
+   });
+   $('.report2').on('click', function () {
+      $('#feedbacks').hide();
+      $('#familyvisit').fadeIn(100)
+      $('#medical').hide();
+   });
+   $('.report3').on('click', function () {
+      $('#feedbacks').hide();
+      $('#familyvisit').hide()
+      $('#medical').fadeIn(100);
+   });
+</script>

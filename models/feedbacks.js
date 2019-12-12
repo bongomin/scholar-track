@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+const { ObjectId } = mongoose.Schema;
 
 
 
@@ -37,6 +38,11 @@ var feedBackModel = new Schema({
    },
    message_to_sponsors: {
       type: String
+   },
+   _user: {
+      type: ObjectId,
+      ref: "user"
+
    }
 
 })

@@ -42,11 +42,12 @@ exports.postFeedBack = (req, res) => {
          best_subject: req.body.best_subject,
          favorite_food: req.body.favorite_food,
          future_aim: req.body.future_aim,
-         message_to_sponsors: req.body.message_to_sponsors
+         message_to_sponsors: req.body.message_to_sponsors,
       }
       new FeedBack(feedbacks).save()
          .then(feedback => {
-            res.json(feedback);
+            // chnage needed here
+            res.render('feedbacks');
 
          })
          .catch(err => {
@@ -56,4 +57,16 @@ exports.postFeedBack = (req, res) => {
    }
 
 
+}
+
+// display all feedbacks
+exports.allFeedBacks = (req, res) => {
+   FeedBack.find({}).then((feedbacks) => {
+      // res.render('Students/reports', {
+      //    feedbacks: feedbacks
+      // })
+      res.json(feedbacks);
+   }).catch(err => {
+      return err;
+   })
 }

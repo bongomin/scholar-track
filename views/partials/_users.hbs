@@ -1,0 +1,25 @@
+<style>
+   .fa:hover {
+      cursor: pointer;
+   }
+
+   * a {
+      text-decoration: none;
+
+   }
+</style>
+{{> _msg}}
+<div class="registerStudentForm">
+   <div id="allstudents">
+      <div class="panel panel-primary">
+         <div class="panel-heading" style="background: darkblue;">All System Users</div>
+         <div class="panel-body">
+            <h1>the users are :</h1>
+            <br>
+            {{!-- ///need to use for each loop  --}}
+            {{users}}
+         </div>
+      </div>
+   </div>
+
+</div>

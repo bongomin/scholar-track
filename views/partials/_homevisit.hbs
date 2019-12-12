@@ -19,6 +19,10 @@
       <div class="panel panel-primary">
          <div class="panel-heading" style="background: darkblue;">Home Visits</div>
          <div class="panel-body">
+            {{#each errors}}
+            <div class="alert alert-danger">{{text}}</div>
+            {{else}}
+            {{/each}}
             <form action="homevisit/add" method="POST">
                <div class="row">
                   <div class="col-md-5">

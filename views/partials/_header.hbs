@@ -53,17 +53,17 @@
          </ul>
          <ul class="nav navbar-nav pull-right">
             {{#if user}}
+            <li><a href="/users/all_users">Users</a></li>
             <li>
                <a href="/users/logout">Logout</a>
             </li>
+
             {{else}}
             <li>
                <a href="/users/register">Register</a>
             </li>
 
             {{/if}}
-
-
          </ul>
       </div>
       <!--/.nav-collapse -->

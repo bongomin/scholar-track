@@ -26,6 +26,25 @@ const UsersSchema = new Schema(
          type: String,
          required: true
       },
+      role: [{
+         admin: {
+            type: String,
+            default: ''
+         },
+         user: {
+            type: String,
+            default: ''
+         },
+         aproved: {
+            type: Boolean,
+            default: false
+         }
+      }],
+      status: [{
+         del: String,
+         yes: String
+      }
+      ],
       resetToken: String,
       resetTokenExpiration: Date,
       date: {

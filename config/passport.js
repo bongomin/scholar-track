@@ -7,6 +7,17 @@ require('../models/Users')
 var User = mongoose.model('users');
 
 module.exports = (passport) => {
+
+   passport.serializeUser(function (user, done) {
+      done(null, user.id);
+   });
+
+   passport.deserializeUser(function (id, done) {
+      User.findById(id, function (err, user) {
+         done(err, user);
+      });
+   });
+
    passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
       User.findOne({
          email: email
@@ -29,14 +40,6 @@ module.exports = (passport) => {
 
    }));
 
-   passport.serializeUser(function (user, done) {
-      done(null, user.id);
-   });
 
-   passport.deserializeUser(function (id, done) {
-      User.findById(id, function (err, user) {
-         done(err, user);
-      });
-   });
 
 }

@@ -98,6 +98,9 @@ exports.addStudent = (req, res) => {
    if (!req.body.email) {
       errors.push({ text: "Student's email missing" });
    }
+   if (!req.body.scholarship_status) {
+      errors.push({ text: "What is the Schorship Status of the student" });
+   }
    if (errors.length > 0) {
       res.render('Students/register_student', {
          errors: errors,
@@ -111,6 +114,7 @@ exports.addStudent = (req, res) => {
          contact: req.body.contact,
          email: req.body.email,
          passport_img: studentImageUrl,
+         scholarship_status: req.body.scholarship_status,
          p_first_name: req.body.p_first_name,
          p_second_name: req.body.p_second_name,
          p_age: req.body.p_age,
@@ -137,6 +141,7 @@ exports.addStudent = (req, res) => {
          contact: req.body.contact,
          email: req.body.email,
          passport_img: studentImageUrl,
+         scholarship_status: req.body.scholarship_status,
          p_first_name: req.body.p_first_name,
          p_second_name: req.body.p_second_name,
          p_age: req.body.p_age,
@@ -182,6 +187,7 @@ exports.put_sudent_info = (req, res) => {
          if (passport_img) {
             updated_Student.passport_img = passport_img.path;
          }
+         updated_Student.scholarship_status = req.body.scholarship_status;
          updated_Student.p_first_name = req.body.p_first_name;
          updated_Student.p_second_name = req.body.p_second_name;
          updated_Student.p_age = req.p_age;

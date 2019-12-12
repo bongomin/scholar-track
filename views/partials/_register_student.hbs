@@ -74,78 +74,87 @@
                      <input type="file" name="passport_img" id="profile-img">
                   </div>
                </div>
-               <span class="pull-right" onclick="next()" style="cursor: pointer;"> Next <i class="fa fa-arrow-right"
-                     style="font-size:20px;color:darkblue;"></i></span>
-            </div>
-         </div>
-      </div>
-      <div id="parentForm" style="display: none;">
-         <div class="panel panel-primary">
-            <div class="panel-heading" style="background: darkblue;">Student's parent Info</div>
-            <div class="panel-body">
-               <div class="row" style="padding: 9px;">
-                  <div class="col-md-12 card">
-                     <div class="pull-right"
-                        style="border: 1px solid black; width:70px; height:70px; border-radius:5px;">
-                        <img src="/public/images/profile.jpg" alt=" Map  Image" />
-                     </div>
-                     <hr />
-                  </div>
-               </div>
-               <div class="form-group col-md-6">
-                  <input type="text" class="form-control" name="p_first_name" placeholder="Parent's First Name"
-                     style=" text-transform: uppercase;">
-               </div>
-               <div class="form-group m-0 p-0 col-md-6">
-                  <input type="text" class="form-control" name="p_second_name" placeholder="Parent's Second Name"
-                     style=" text-transform: uppercase;">
-               </div>
-               <div class="form-group col-md-6">
-                  <input type="number" class="form-control" name="p_age" placeholder="Age ">
-               </div>
-               <div class="form-group col-md-6">
-                  <input type="text" class="form-control" name="p_occupation" placeholder="Occupation "
-                     style=" text-transform: uppercase;">
-               </div>
-               <div class="form-group m-0 p-0 col-md-6">
-                  <select class="form-control" name="p_relationship" id="exampleFormControlSelect1">
-                     <option>Relationship to Child</option>
-                     <option>Father</option>
-                     <option>Mother</option>
-                     <option>Gurdian</option>
+
+               <div class="form-group col-md-12">
+                  <select class="form-control" name="scholarship_status">
+                     <option>Scholarship Status</option>
+                     <option>On Scholarship</option>
+                     <option>Waiting List</option>
                   </select>
                </div>
-               <div class="form-group col-md-6">
-                  <input type="number" class="form-control" name="p_no_siblings" placeholder="Number of Siblings ">
-               </div>
-               <div class="form-group col-md-6">
-                  <input type="text" class="form-control" name="p_contact" placeholder="Contact ie +256 07xxxx "
-                     style=" text-transform: uppercase;">
-               </div>
-               <div class="form-group col-md-6">
-                  <input type="text" class="form-control" name="p_residence"
-                     placeholder="Place of Residence / Country and City " style=" text-transform: uppercase;">
-               </div>
-               <div class="form-group col-md-6">
-                  <input type="text" class="form-control" name="p_email" placeholder="Parents emial @xxx ">
-               </div>
-               <div class="form-group col-md-6">
-                  <label for="customFile" class="col-sm-5 col-form-label">Map attouchment</label>
-                  <div class="col-sm-6">
-                     <input type="file" name="p_map">
-                  </div>
-               </div>
-               <button onclick="submitstudent()" class="btn btn-default pull-right"
-                  style="background:darkblue;color:aliceblue;">
-                  <i class="fa fa-sign-out" aria-hidden="true"></i>
-                  register</button>
-               <span class="pull-left" onclick="back()" style="cursor: pointer;"> <i class="fa fa-arrow-left"
-                     style="font-size:20px;color:darkblue;"></i> Back </span>
 
             </div>
+            <span class="pull-right" onclick="next()" style="cursor: pointer;"> Next <i class="fa fa-arrow-right"
+                  style="font-size:20px;color:darkblue;"></i></span>
          </div>
       </div>
-   </form>
+</div>
+<div id="parentForm" style="display: none;">
+   <div class="panel panel-primary">
+      <div class="panel-heading" style="background: darkblue;">Student's parent Info</div>
+      <div class="panel-body">
+         <div class="row" style="padding: 9px;">
+            <div class="col-md-12 card">
+               <div class="pull-right" style="border: 1px solid black; width:70px; height:70px; border-radius:5px;">
+                  <img src="/public/images/profile.jpg" alt=" Map  Image" />
+               </div>
+               <hr />
+            </div>
+         </div>
+         <div class="form-group col-md-6">
+            <input type="text" class="form-control" name="p_first_name" placeholder="Parent's First Name"
+               style=" text-transform: uppercase;">
+         </div>
+         <div class="form-group m-0 p-0 col-md-6">
+            <input type="text" class="form-control" name="p_second_name" placeholder="Parent's Second Name"
+               style=" text-transform: uppercase;">
+         </div>
+         <div class="form-group col-md-6">
+            <input type="number" class="form-control" name="p_age" placeholder="Age ">
+         </div>
+         <div class="form-group col-md-6">
+            <input type="text" class="form-control" name="p_occupation" placeholder="Occupation "
+               style=" text-transform: uppercase;">
+         </div>
+         <div class="form-group m-0 p-0 col-md-6">
+            <select class="form-control" name="p_relationship" id="exampleFormControlSelect1">
+               <option>Relationship to Child</option>
+               <option>Father</option>
+               <option>Mother</option>
+               <option>Gurdian</option>
+            </select>
+         </div>
+         <div class="form-group col-md-6">
+            <input type="number" class="form-control" name="p_no_siblings" placeholder="Number of Siblings ">
+         </div>
+         <div class="form-group col-md-6">
+            <input type="text" class="form-control" name="p_contact" placeholder="Contact ie +256 07xxxx "
+               style=" text-transform: uppercase;">
+         </div>
+         <div class="form-group col-md-6">
+            <input type="text" class="form-control" name="p_residence"
+               placeholder="Place of Residence / Country and City " style=" text-transform: uppercase;">
+         </div>
+         <div class="form-group col-md-6">
+            <input type="text" class="form-control" name="p_email" placeholder="Parents emial @xxx ">
+         </div>
+         <div class="form-group col-md-6">
+            <label for="customFile" class="col-sm-5 col-form-label">Map attouchment</label>
+            <div class="col-sm-6">
+               <input type="file" name="p_map">
+            </div>
+         </div>
+         <button onclick="submitstudent()" class="btn btn-default pull-right"
+            style="background:darkblue;color:aliceblue;">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            register</button>
+         <span class="pull-left" onclick="back()" style="cursor: pointer;"> <i class="fa fa-arrow-left"
+               style="font-size:20px;color:darkblue;"></i> Back </span>
+
+      </div>
+   </div>
+</div>
+</form>
 </div>
 
 <script>
