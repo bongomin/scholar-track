@@ -28,13 +28,28 @@ exports.register = (req, res) => {
 }
 // Login Form Post
 
-exports.LoginPost = (req, res, next) => {
-   passport.authenticate('local', {
-      successRedirect: '/main',
-      failureRedirect: '/',
-      failureFlash: true
-   })(req, res, next);
+exports.LoginPost = async (req, res, next) => {
+   const user = await User.findOne({ email: req.body.email })
+   if (user) {
+      const { ISaproved } = user
+      if (ISaproved) {
+         console.log('heree')
+         passport.authenticate('local', {
+            successRedirect: '/main',
+            failureRedirect: '/',
+            failureFlash: true
+         })(req, res, next);
+         console.log('end here')
+      }
+      else {
+         req.flash('error_msg', 'your acount is not activated')
+         res.redirect('/')
 
+      }
+   } else {
+      req.flash('error_msg', 'user is not found')
+      res.redirect('/')
+   }
 }
 
 exports.LogoutUser = (req, res) => {
