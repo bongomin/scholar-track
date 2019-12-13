@@ -8,7 +8,6 @@ require('../models/Students')
 var Student = mongoose.model('students')
 
 
-
 exports.register_parents_page = (req, res) => {
    res.render('Parents/register_parent')
 }
