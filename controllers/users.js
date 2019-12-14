@@ -33,13 +33,11 @@ exports.LoginPost = async (req, res, next) => {
    if (user) {
       const { ISaproved } = user
       if (ISaproved) {
-         console.log('heree')
          passport.authenticate('local', {
             successRedirect: '/main',
             failureRedirect: '/',
             failureFlash: true
          })(req, res, next);
-         console.log('end here')
       }
       else {
          req.flash('error_msg', 'your acount is not activated')
