@@ -30,20 +30,19 @@
 
             <h4 class="text-center border-bottom-line">Questions</h4>
             {{> _errors}}
-            <form action="/feedback/requestStudentDetails" method="POST">
+            <form action="/feedback/send" method="POST">
                <div class="form-group row">
                   <label for="inputPassword" class="col-sm-3 col-form-label">Scholarship Number</label>
                   <div class="col-sm-9">
-                     <input type="text" class="form-control border-bottom" id="inputPassword" name="scholarship_no">
+                     <input type="text" class="form-control border-bottom" id="inputPassword" name="scholarship_no"
+                        value="{{studentDetails.sponsorship_No}}">
                   </div>
                </div>
-            </form>
-            <form action="feedback/send" method="POST">
-
                <div class="form-group row">
                   <div class="col-md-6">
                      <label>My Name is</label>
-                     <input type="text" class="form-control border-bottom col-md-6" name="student_name">
+                     <input type="text" class="form-control border-bottom col-md-6" name="student_name"
+                        value="{{studentDetails.full_name}}">
                   </div>
                   <div class="col-md-6">
                      <label>I am</label>
