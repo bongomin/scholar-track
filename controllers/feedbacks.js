@@ -57,6 +57,7 @@ exports.fetchStudentDetailsForFeedback = async (req, res) => {
       console.log(studentDetails)
       res.render('feedback_submit.hbs', { studentDetails: studentDetails })
    } else {
+
       req.flash('error_msg', 'No student found for the provided scholarship number')
       res.render('feedbacks')
    }
@@ -66,10 +67,9 @@ exports.fetchStudentDetailsForFeedback = async (req, res) => {
 // display all feedbacks
 exports.allFeedBacks = (req, res) => {
    FeedBack.find({}).then((feedbacks) => {
-      // res.render('Students/reports', {
-      //    feedbacks: feedbacks
-      // })
-      res.json(feedbacks);
+      res.render('Students/feedback_report', {
+         feedbacks: feedbacks
+      })
    }).catch(err => {
       return err;
    })

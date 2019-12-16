@@ -80,6 +80,49 @@
                </div>
             </div>
          </div>
+         <div class="panel  panel-primary">
+            <div class="panel-body">
+               <div style="height: 360px; overflow-y: scroll;">
+                  <table class="table table-hover table-dark" style="font-size: 12px;">
+                     <thead>
+                        <tr>
+                           <th scope="col">Sponsorship_No</th>
+                           <th scope="col">Students Name</th>
+                           <th scope="col">School From: </th>
+                           <th scope="col">Action</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {{#each feedback}}
+                        <tr>
+                           <td>{{scholarship_no}}</td>
+                           <td style="  text-transform: capitalize;">{{student_name}}</td>
+                           <td style="  text-transform: capitalize;">{{school_name}}</td>
+                           <td>
+                              <form action="/student/{{id}}?_method=DELETE" method="post">
+                                 <input type="hidden" name="_method" value="Delete">
+                                 <button type="submit" class="btn btn-danger pull-left ">
+                                    <i class="fa fa-trash"></i>
+                                 </button>
+                              </form>
+                              <a class="btn btn-primary" style="margin-left:2px;" href="student/edit/{{id}}">
+                                 <i class="fa fa-pencil-square-o " style="color:white; " aria-hidden="true"></i>
+                              </a>
+                              <a href="student/studentInfo/{{id}}" class="btn btn-success" style="margin-left:2px;">
+                                 <i class="fa fa-info " style="color:white; " aria-hidden="true"></i>
+                              </a>
+                           </td>
+                        </tr>
+                        {{else}}
+                        <p>No reports Registered This time</p>
+                        {{/each}}
+                     </tbody>
+                  </table>
+               </div>
+
+
+            </div>
+         </div>
       </div>
    </form>
 </div>

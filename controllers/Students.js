@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var fs = require('fs');
 var multer = require('multer');
+require('../models/feedbacks')
+var FeedBack = mongoose.model('feedbacks')
 
 // require('../models/Users')
 // var user = mongoose.model('users')
@@ -11,11 +13,34 @@ var Student = mongoose.model('students')
 exports.register_parents_page = (req, res) => {
    res.render('Parents/register_parent')
 }
-
+// Begining of reports enpoints
 exports.reports_page = (req, res) => {
    res.render('Students/reports')
 }
 
+exports.feedback_reports_page = (req, res) => {
+   FeedBack.find({}).then(feedback => {
+      res.render('Students/feedback_report', {
+         feedback: feedback
+      })
+   }).catch(error => {
+      return error
+   });
+
+}
+
+exports.familyvisits_reports_page = (req, res) => {
+   res.render('Students/familyvisit_report')
+}
+
+exports.medical_reports_page = (req, res) => {
+   res.render('Students/medical_report')
+}
+
+// end of reports enpoints
+
+
+// registering students endpoint
 exports.register_student_page = (req, res) => {
    res.render('Students/register_student')
 }
@@ -31,9 +56,6 @@ exports.edit_sudent_info = (req, res) => {
          })
       })
 }
-
-
-
 
 // Deleting Student
 exports.delete_sudent_info = (req, res) => {

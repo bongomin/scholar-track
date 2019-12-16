@@ -12,7 +12,10 @@ const { addStudent,
    edit_sudent_info,
    put_sudent_info,
    delete_sudent_info,
-   SingleStudentInfo
+   SingleStudentInfo,
+   feedback_reports_page,
+   familyvisits_reports_page,
+   medical_reports_page
 } = require('../controllers/Students')
 
 
@@ -21,6 +24,10 @@ const { select, formatDate } = require('../helpers/hbs_helpers');
 
 router.get('/register_student', register_student_page)
 router.get('/reports', reports_page)
+router.get('/feedbackreport', feedback_reports_page)
+router.get('/familyvisitreport', familyvisits_reports_page)
+router.get('/medicalreport', medical_reports_page)
+
 router.get('/', allStudents_page);
 // editing process to allow editing/
 router.get('/edit/:id', edit_sudent_info);
