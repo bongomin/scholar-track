@@ -1,0 +1,207 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+   .nav-tabs li {
+      cursor: pointer;
+      font-size: 11px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   }
+
+   * a {
+      text-decoration: none;
+
+   }
+
+   a {
+      text-decoration: none;
+   }
+
+   li {
+      text-decoration: none;
+   }
+
+   .card ul li:hover {
+      border-right: 5px solid darkblue;
+      color: darkblue;
+      text-decoration: none;
+      cursor: pointer;
+   }
+
+   .modal-confirm {
+      color: #636363;
+      height: 5px;
+      width: 300px;
+      margin-top: 200px;
+   }
+
+   .modal-confirm .modal-content {
+      padding: 20px;
+      height: 310px;
+      border-radius: 5px;
+      border: none;
+      text-align: center;
+      font-size: 12px;
+   }
+
+   .modal-confirm .modal-header {
+      border-bottom: none;
+      position: relative;
+   }
+
+   .modal-confirm h5 {
+      text-align: center;
+      font-size: 20px;
+      margin: 30px 0 -10px;
+   }
+
+   .modal-confirm .close {
+      position: absolute;
+      top: -5px;
+      right: -2px;
+   }
+
+   .modal-confirm .modal-body {
+      color: darkblue;
+   }
+
+   .modal-confirm .modal-footer {
+      border: none;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 12px;
+
+   }
+
+   .modal-confirm .modal-footer a {
+      color: darkblue;
+   }
+
+   .modal-confirm .icon-box {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
+      border-radius: 50%;
+      z-index: 3;
+      text-align: center;
+      border: 3px solid darkblue;
+   }
+
+   .modal-confirm .icon-box i {
+      color: #f15e5e;
+      font-size: 46px;
+      display: inline-block;
+      margin-top: 13px;
+   }
+
+   .modal-confirm .btn {
+      color: #fff;
+      border-radius: 4px;
+      background: darkblue;
+      text-decoration: none;
+      transition: all 0.4s;
+      line-height: normal;
+      min-width: 150px;
+      border: none;
+      min-height: 20px;
+      border-radius: 3px;
+      margin: 0 5px;
+      outline: none !important;
+   }
+
+   .modal-confirm .btn-info {
+      background: #c1c1c1;
+   }
+
+   .modal-confirm .btn-info:hover,
+   .modal-confirm .btn-info:focus {
+      background: #a8a8a8;
+   }
+
+   .modal-confirm .btn-danger {
+      background: #f15e5e;
+   }
+
+   .modal-confirm .btn-danger:hover,
+   .modal-confirm .btn-danger:focus {
+      background: #ee3535;
+   }
+</style>
+{{!-- <link rel="stylesheet" href="stylesheets/"> --}}
+<div class="container">
+   <div class="menus" style="margin-top: 10px;">
+      <div class="row">
+         <ul class="nav nav-tabs">
+            <li class="active"><a href="/student/register_student">Students</a></li>
+            <li><a href="/Parents/register_parent">Parents</a></li>
+            <li><a href="/student/reports">Reports</a></li>
+            <li><a>Scholars</a></li>
+         </ul>
+      </div>
+   </div>
+   <div class="container-fluid" style="margin-top: 5px;">
+      <div class="row">
+         <div id="registerStudentDiv">
+            {{!-- students left menu --}}
+            <div class="col-md-2 col-sm-2 hidden-xs">
+               <div class="row">
+                  <div class="card">
+                     <ul class="list-group">
+                        <a href="/student/register_student">
+                           <li class="list-group-item">
+                              <i class="fa fa-pencil" aria-hidden="true"></i>
+                              &nbsp register Students
+                           </li>
+                        </a>
+                        <a href="/student">
+                           <li class="list-group-item">
+                              <i class="fa fa-users" aria-hidden="true"></i>
+                              &nbsp Students
+                           </li>
+                        </a>
+                        <a href="">
+                           <li class="list-group-item">
+                              <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                              &nbsp Reports
+                           </li>
+                        </a>
+                        <a href="/feedback">
+                           <li class="list-group-item">
+                              <i class="fa fa-folder-open" aria-hidden="true"></i>
+                              &nbsp FeedBacks
+                           </li>
+                        </a>
+                        <a href="/homevisit">
+                           <li class="list-group-item">
+                              <i class="fa fa-university" aria-hidden="true"></i>
+                              Home Visits
+                           </li>
+                        </a>
+                        <a href="/medical">
+                           <li class="list-group-item">
+                              <i class="fa fa-thermometer-full" aria-hidden="true"></i>
+                              &nbsp Medical
+                           </li>
+                        </a>
+                     </ul>
+                  </div>
+
+               </div>
+            </div>
+            {{!-- students right content --}}
+            <div class="col-md-10 col-sm-10">
+               <div class="scroller" style="height: 20px;">
+                  {{>_homevisit_submit}}
+               </div>
+
+            </div>
+         </div>
+
+      </div>
+   </div>
+
+</div>
