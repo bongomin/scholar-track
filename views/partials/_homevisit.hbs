@@ -13,152 +13,154 @@
       max-height: 400px;
    }
 </style>
-{{> _msg}}
 <div class="registerStudentForm">
    <div id="allstudents">
       <div class="panel panel-primary">
          <div class="panel-heading" style="background: darkblue;">Home Visits</div>
          <div class="panel-body">
-            {{#each errors}}
-            <div class="alert alert-danger">{{text}}</div>
-            {{else}}
-            {{/each}}
-            <form action="homevisit/add" method="POST">
-               <div class="row">
+            <div class="row">
+               {{#each errors}}
+               <div class="alert alert-danger">{{text}}</div>
+               {{else}}
+               {{/each}}
+               {{>_msg}}
+               here
+               <form action="/homevisit/fetch_home_visits" method="POST">
                   <div class="col-md-5">
                      <div class="form-group">
                         <label>Scholarship Number</label>
-                        <input type="text" name="sponsorship_no" class="form-control form-control-sm">
+                        <input type="text" name="scholarship_no" class="form-control form-control-sm">
                      </div>
                   </div>
+               </form>
+               <form action="homevisit/add" method="POST">
                   <div class="col-md-7">
                      <div class="form-group">
                         <label>District Local Government community bases service department</label>
                         <input type="text" name="district_local_gov" class="form-control form-control-sm">
                      </div>
                   </div>
-               </div>
-               <div class="row">
-                  <div class="col-md-5">
-                     <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Date of Visit:</label>
-                        <div class="col-sm-8">
-                           <input type="date" name="visit_date" class="form-control">
-                        </div>
+            </div>
+            <div class="row">
+               <div class="col-md-5">
+                  <div class="form-group row">
+                     <label class="col-sm-4 col-form-label">Date of Visit:</label>
+                     <div class="col-sm-8">
+                        <input type="date" name="visit_date" class="form-control">
                      </div>
                   </div>
-                  <div class="col-md-7">
-                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label">Name of the house hold Head</label>
-                        <div class="col-sm-7">
-                           <input type="text" name="house_hold_head" class="form-control">
-                        </div>
+               </div>
+               <div class="col-md-7">
+                  <div class="form-group row">
+                     <label class="col-sm-5 col-form-label">Name of the house hold Head</label>
+                     <div class="col-sm-7">
+                        <input type="text" name="house_hold_head" class="form-control">
                      </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-md-5">
+                  <div class="form-group row">
+                     <label class="col-sm-4 col-form-label">Village:</label>
+                     <div class="col-sm-8">
+                        <input type="text" name="village" class="form-control">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-7">
+                  <div class="form-group row">
+                     <label class="col-sm-5 col-form-label">Parish</label>
+                     <div class="col-sm-7">
+                        <input type="text" name="parish" class="form-control">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-5">
+                  <div class="form-group row">
+                     <label class="col-sm-4 col-form-label">Division/Sub-county:</label>
+                     <div class="col-sm-8">
+                        <input type="text" name="division_sub_county" class="form-control">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-7">
+                  <div class="form-group row">
+                     <label class="col-sm-5 col-form-label">District</label>
+                     <div class="col-sm-7">
+                        <input type="text" name="district" class="form-control">
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="row">
+               <label class="col-sm-4 col-form-label">Has this house hold reached before?:</label>
+               <div class="col-md-2">
+                  <div class="form-group row">
+                     <input type="radio" name="reached"> <label>Yes</label> &nbsp;
+                     <input type="radio" name="reached"> <label>No</label>
                   </div>
                </div>
 
-               <div class="row">
-                  <div class="col-md-5">
-                     <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Village:</label>
-                        <div class="col-sm-8">
-                           <input type="text" name="village" class="form-control">
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-7">
-                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label">Parish</label>
-                        <div class="col-sm-7">
-                           <input type="text" name="parish" class="form-control">
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-5">
-                     <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Division/Sub-county:</label>
-                        <div class="col-sm-8">
-                           <input type="text" name="division_sub_county" class="form-control">
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-7">
-                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label">District</label>
-                        <div class="col-sm-7">
-                           <input type="text" name="district" class="form-control">
-                        </div>
-                     </div>
+               <label class="col-sm-2 col-form-label">If Yes? Date:</label>
+               <div class="col-md-4">
+                  <input type="date" name="yes_date" class="form-control">
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="form-group">
+                     <label>And what where the actions for the next follow?</label>
+                     <textarea class="form-control" name="actions_to_be_taken" cols="30" rows="3"></textarea>
                   </div>
                </div>
+            </div>
 
-               <div class="row">
-                  <label class="col-sm-4 col-form-label">Has this house hold reached before?:</label>
-                  <div class="col-md-2">
-                     <div class="form-group row">
-                        <input type="radio" name="reached"> <label>Yes</label> &nbsp;
-                        <input type="radio" name="reached"> <label>No</label>
-                     </div>
-                  </div>
-
-                  <label class="col-sm-2 col-form-label">If Yes? Date:</label>
-                  <div class="col-md-4">
-                     <input type="date" name="yes_date" class="form-control">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="form-group">
+                     <label>Summarize the reason for the current visit:</label>
+                     <textarea class="form-control" name="summarized_reasons" cols="30" rows="3"></textarea>
                   </div>
                </div>
+            </div>
 
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="form-group">
-                        <label>And what where the actions for the next follow?</label>
-                        <textarea class="form-control" name="actions_to_be_taken" cols="30" rows="3"></textarea>
-                     </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="form-group">
+                     <label>Findings | Actions/Services Provided | Action(s) for future follow up:</label>
+                     <textarea class="form-control" name="findings_actions" id="editor" cols="30" rows="3"></textarea>
                   </div>
                </div>
+            </div>
 
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="form-group">
-                        <label>Summarize the reason for the current visit:</label>
-                        <textarea class="form-control" name="summarized_reasons" cols="30" rows="3"></textarea>
-                     </div>
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="form-group">
+                     <label>Title of the home Visitor:</label>
+                     <select class="form-control" name="home_visitor_title">
+                        <option value="Select">Select Title</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mr">Mrs</option>
+                        <option value="Mr">Miss</option>
+                        <option value="Mr">Hon</option>
+                     </select>
                   </div>
                </div>
-
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="form-group">
-                        <label>Findings | Actions/Services Provided | Action(s) for future follow up:</label>
-                        <textarea class="form-control" name="findings_actions" id="editor" cols="30"
-                           rows="3"></textarea>
-                     </div>
-                  </div>
+               <div class="col-md-8">
+                  <label>Name of Home Visitor</label>
+                  <input type="text" name="home_vistor" class="form-control">
                </div>
+            </div>
 
-               <div class="row">
-                  <div class="col-md-4">
-                     <div class="form-group">
-                        <label>Title of the home Visitor:</label>
-                        <select class="form-control" name="home_visitor_title">
-                           <option value="Select">Select Title</option>
-                           <option value="Mr">Mr</option>
-                           <option value="Mr">Mrs</option>
-                           <option value="Mr">Miss</option>
-                           <option value="Mr">Hon</option>
-                        </select>
-                     </div>
-                  </div>
-                  <div class="col-md-8">
-                     <label>Name of Home Visitor</label>
-                     <input type="text" name="home_vistor" class="form-control">
-                  </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                </div>
-
-               <div class="row">
-                  <div class="col-md-12">
-                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                  </div>
-               </div>
+            </div>
 
          </div>
          </form>

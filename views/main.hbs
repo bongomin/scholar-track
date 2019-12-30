@@ -4,6 +4,27 @@
       font-size: 11px;
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
    }
+
+   #upper {
+      padding: 60px;
+      margin: 3px;
+      border: 1px red bold;
+      text-align: center;
+      border-radius: 20px;
+      border-style: solid;
+      border-width: 1px;
+   }
+
+   #upper:hover {
+      background-color: rgb(14, 14, 136);
+      color: white;
+   }
+
+   #upper .fa :hover {
+      color: orange;
+   }
+
+   .fa:hover {}
 </style>
 <div class="container">
    <div class="menus" style="margin-top: 10px;">
@@ -14,6 +35,38 @@
             <li><a href="/student/reports">Reports</a></li>
             <li><a>Scholars</a></li>
          </ul>
+      </div>
+   </div>
+   <div class="main-content" style="margin-top:30px;">
+      <div class="container">
+         <div class="row" style="margin-left: 80px;">
+            <a href="/student/register_student">
+               <div class="col-md-5" id="upper">
+                  <i class="fa fa-users" aria-hidden="true" style="font-size: 60px;"></i>
+                  Students
+               </div>
+            </a>
+            <a href="/Parents/register_parent">
+               <div class="col-md-5 " id="upper">
+                  <i class="fa fa-users" aria-hidden="true" style="font-size: 60px;"></i>
+                  Parents
+               </div>
+            </a>
+         </div>
+         <div class="row" style="margin-left: 80px;">
+            <a href="/student/reports">
+               <div class="col-md-5" id="upper">
+                  <i class="fa fa-recycle" aria-hidden="true" style="font-size: 60px;"></i>
+                  Reports
+               </div>
+
+            </a>
+
+            <div class="col-md-5 " id="upper">
+               <i class="fa fa-graduation-cap" aria-hidden="true" style="font-size: 60px;"></i>
+               Scholars
+            </div>
+         </div>
       </div>
    </div>
 </div>

@@ -3,6 +3,9 @@ var mongoose = require('mongoose');
 require('../models/homevisits');
 var HomeVisit = mongoose.model('homevisits')
 
+require('../models/Students');
+var Students = mongoose.model('students')
+
 // home visit page
 exports.homeVisits = (req, res) => {
    res.render('homevisit')
@@ -28,13 +31,30 @@ exports.PostFeedBacks = (req, res) => {
       home_vistor: req.body.home_vistor
    }
    new HomeVisit(homeVisit).save()
-      .then(homevisit => {
-         res.json(homeVisit)
+      .then((homevisit) => {
+         req.flash('success_msg', 'Family Visit Records successfully added')
+         res.render('homevisit')
       })
       .catch(err => {
          return err;
       })
 
+}
+
+
+// display all familyvist feedbacks
+
+
+// fetching homevisit reports
+exports.fetching_home_visit_data = async (req, res) => {
+   const { scholarship_no } = req.body;
+   const homevistReport = await Students.findOne({ sponsorship_No: scholarship_no });
+   if (homevistReport) {
+      res.render('home_visit_submit', { homevistReport: homevistReport })
+   } else {
+      req.flash('error_msg', 'No student found for the provided scholarship number')
+      res.render('feedbacks')
+   }
 }
 
 
